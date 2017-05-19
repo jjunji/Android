@@ -7,11 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity
-        implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener{
+        implements View.OnClickListener, CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener {
 
     // 1. 위젯 변수를 선언
     Button btnDog, btnPig, btnHorse;
@@ -19,6 +21,11 @@ public class MainActivity extends AppCompatActivity
     ToggleButton toggleButton;
 
     RadioGroup radiogroup;
+
+    SeekBar seekBar;
+
+    TextView seekCount;
+
 
     // 라디오 버튼을 그룹으로 묶어서 만들지 않으면 하나를 켰을 때 하나가 꺼지는 컨트롤이 안됨.
     // 대신 하지 않으면 다중선택이 가능하지만 이것은 이미 체크박스라는 ui가 존재.
@@ -37,6 +44,10 @@ public class MainActivity extends AppCompatActivity
 
         radiogroup = (RadioGroup) findViewById(R.id.radiogroup);
 
+        seekBar = (SeekBar) findViewById(R.id.seekBar);
+
+        seekCount = (TextView) findViewById(R.id.seekCount);
+
         // 3. 클릭리스너 연결
         btnDog.setOnClickListener(this); // 리스너에 this(무언가)를 넘겨주면
         btnPig.setOnClickListener(this); // 해당 이벤트가 발생시 this(무언가)를 호출해준다.
@@ -51,7 +62,7 @@ public class MainActivity extends AppCompatActivity
         });*/  // 이처럼 안하고 밑으로 빼서 사용하는 것은 위처럼 할 경우 작업하나만 가능해짐. 당장 토글이 3개 추가된다고 한다면 위 소스를 3번 써야함.
         radiogroup.setOnCheckedChangeListener(this);
 
-
+        seekBar.setOnSeekBarChangeListener(listener);
     }
 
     @Override                       // View는 최상위 클래스 (Object 같은)
@@ -102,4 +113,22 @@ public class MainActivity extends AppCompatActivity
                 }
         }
     }
+
+    SeekBar.OnSeekBarChangeListener listener = new SeekBar.OnSeekBarChangeListener() {
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            seekCount.setText(progress+"");
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+
+        }
+    };
+
 }
