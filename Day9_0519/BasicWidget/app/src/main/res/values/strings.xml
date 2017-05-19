@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BasicWidget</string>
+
+    <!-- 레이아웃에 한글이 안뜨기 때문에 사용할 글자를 미리 정의.
+         당장은 불편해 보이지만 만약 3개 언어의 어플을 만든다면,
+     -->
+    <string name="word_dog">개</string>
+    <string name="word_pig">돼지</string>
+    <string name="word_horse">말</string>
+
+    <string name="radio_red">빨강</string>
+    <string name="radio_green">초록</string>
+    <string name="radio_blue">파랑</string>
+
+</resources>
