@@ -15,7 +15,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btnPlus, btnMinus, btnMulti, btnDiv;
     TextView result;
 
-    String temp = "";
+    String tempInt = "";
+    String tempOper = "";
+    String tempTot = "";
+
+    String[] array;
+
+    String numPre = "";
+    String numNext = "";
+    int realNum = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,72 +76,118 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn0:
-                temp = temp + "0";
-                result.setText(temp);
+                tempInt = tempInt + "0";
+                tempTot = tempTot + tempInt;
+                tempInt = "";
+                result.setText(tempTot);
                 break;
             case R.id.btn1:
-                temp = temp + "1";
-                result.setText(temp);
+                tempInt = tempInt + "1";
+                tempTot = tempTot + tempInt;
+                tempInt = "";
+                result.setText(tempTot);
                 break;
             case R.id.btn2:
-                temp = temp + "2";
-                result.setText(temp);
+                tempInt = tempInt + "2";
+                tempTot = tempTot + tempInt;
+                tempInt = "";
+                result.setText(tempTot);
                 break;
             case R.id.btn3:
-                temp = temp + "3";
-                result.setText(temp);
+                tempInt = tempInt + "3";
+                tempTot = tempTot + tempInt;
+                tempInt = "";
+                result.setText(tempTot);
                 break;
             case R.id.btn4:
-                temp = temp + "4";
-                result.setText(temp);
+                tempInt = tempInt + "4";
+                tempTot = tempTot + tempInt;
+                tempInt = "";
+                result.setText(tempTot);
                 break;
             case R.id.btn5:
-                temp = temp + "5";
-                result.setText(temp);
+                tempInt = tempInt + "5";
+                tempTot = tempTot + tempInt;
+                tempInt = "";
+                result.setText(tempTot);
                 break;
             case R.id.btn6:
-                temp = temp + "6";
-                result.setText(temp);
+                tempInt = tempInt + "6";
+                tempTot = tempTot + tempInt;
+                tempInt = "";
+                result.setText(tempTot);
                 break;
             case R.id.btn7:
-                temp = temp + "7";
-                result.setText(temp);
+                tempInt = tempInt + "7";
+                tempTot = tempTot + tempInt;
+                tempInt = "";
+                result.setText(tempTot);
                 break;
             case R.id.btn8:
-                temp = temp + "8";
-                result.setText(temp);
+                tempInt = tempInt + "8";
+                tempTot = tempTot + tempInt;
+                tempInt = "";
+                result.setText(tempTot);
                 break;
             case R.id.btn9:
-                temp = temp + "9";
-                result.setText(temp);
+                tempInt = tempInt + "9";
+                tempTot = tempTot + tempInt;
+                tempInt = "";
+                result.setText(tempTot);
                 break;
 
             case R.id.btnPlus:
-                temp = temp + "+";
-                result.setText(temp);
+                tempOper = "+";
+                tempTot = tempTot + tempOper;
+                result.setText(tempTot);
+                tempOper ="";
                 break;
 
             case R.id.btnMinus:
-                temp = temp + "-";
-                result.setText(temp);
+                tempOper = "-";
+                tempTot = tempTot + tempOper;
+                result.setText(tempTot);
+                tempOper ="";
                 break;
 
             case R.id.btnMulti:
-                temp = temp + "*";
-                result.setText(temp);
+                tempOper = "*";
+                tempTot = tempTot + tempOper;
+                result.setText(tempTot);
+                tempOper ="";
                 break;
 
             case R.id.btnDiv:
-                temp = temp + "/";
-                result.setText(temp);
+                tempOper = "/";
+                tempTot = tempTot + tempOper;
+                result.setText(tempTot);
+                tempOper ="";
                 break;
 
             case R.id.btnClean:
-                result.setText("0");
+                tempInt = "";
+                tempOper = "";
+                tempTot = "";
+                result.setText(tempTot);
                 break;
 
             case R.id.btnResult:
-                //result.setText(temp);
+                array = tempTot.split("");
+
+                for(int i=0; i<array.length; i++){
+                    if(array[i].equals("+")){
+                        for(int j=i+1; j<array.length; j++){
+                            numNext = numNext + array[j];
+                        }
+                        break;
+                    }
+                    numPre = numPre + array[i];
+                }
+
+                realNum = Integer.getInteger(numPre) + Integer.getInteger(numNext);
+
+                result.setText(realNum);
+
                 break;
         }
     }
