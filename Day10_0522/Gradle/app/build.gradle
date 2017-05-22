@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application' // 모듈 용도 구분
+
+android {
+    compileSdkVersion 25        // sdk 버전 정의
+    buildToolsVersion "25.0.3"  // 빌드툴(그래들 버전) 버전 정의
+    defaultConfig {   //
+        applicationId "com.example.jhjun.gradle"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../../keystore/keystore.jks")
+            storePassword "12345678"
+            keyAlias "testKey"
+            keyPassword "12345678"
+        }
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "MYURL", "\"test.seoul.go.kr\""
+        }
+        release {
+            signingConfig signingConfigs.release
+                         // 값의타입    이름       실제값
+            buildConfigField "String", "MYURL", "\"seoul.go.kr\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}
