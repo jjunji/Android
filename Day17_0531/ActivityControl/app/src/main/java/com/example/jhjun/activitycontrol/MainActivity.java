@@ -33,12 +33,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public static final int BTN_RESULT = 99;  // int 값으로 받는 이유는 아마 빠른 연산을 하기 위함이 아닐까.
 
     @Override
-    public void onClick(View v) {    // this만 해도 되나
+    public void onClick(View v) {
         // Intent intent = new Intent(this, SubActivity.class);  // intent가 바뀌지 않으므로 여기 쓸 필요 없다, 클릭할 때 마다 new -> 메모리 낭비
         switch (v.getId()){
             // 일반적인 Activity start
             case R.id.btnStart :
-                startActivity(intent);
+                startActivity(intent);  // intent에는 목적지 정보가 있으므로 SubActivity.class 호출.
                 break;
             // 값을 돌려받는 Activity start
             case R.id.btnResult :
@@ -47,16 +47,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("key",editText.getText().toString());
                 // 여러 버튼이 같은 함수(sub액티비티 호출)를 호출하고 각각의 다른결과를 얻어야한다면 인식표가 필요하겠지
                 // 구분자, 어디서 오는 것인지 알기 위함. (sub액티비티를 호출하는 버튼이 많을 때)
-                startActivityForResult(intent, BTN_RESULT);
+                startActivityForResult(intent, BTN_START);
                 // start subActivity > finish() > 결과값을 돌려준다. > MainActivity.onActivityResult
                 break;
         }
     }
 
-    @Override                           // 구분 코드   // 반환하는 쪽에서 세팅한 값   //
+    @Override                           // 구분 코드   // 반환하는 쪽에서 세팅한 값
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
                                                                         // 결과값이 담겨온다.
-        //super.onActivityResult(requestCode, resultCode, data);
+        // super.onActivityResult(requestCode, resultCode, data); // ->
         Toast.makeText(this, "Result Code="+resultCode, Toast.LENGTH_SHORT).show();
 
         if(resultCode == RESULT_OK) {
