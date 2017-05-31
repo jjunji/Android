@@ -59,7 +59,7 @@ public class SubActivity extends AppCompatActivity {
                 int result = num1 + num2;
 
                 /* 값 반환하기 */
-//
+
                 // 결과값을 intent에 담아서     //                              시스템 자원을 이용하는 것이 아니고
                 Intent intent = new Intent(); // context를 넘기지 얂는다. 왜? -> 이미 있는 액티비티에 값만 넘겨주는 것이기 때문
                 intent.putExtra("result", result); //
