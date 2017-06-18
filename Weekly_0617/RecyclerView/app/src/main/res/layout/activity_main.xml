@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".MainActivity">"
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/simple_title_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/simple_execute_button"
+                    android:text="리스트를 표시해 보자"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/simple_title_text_view"
+                    android:layout_margin="8dp"
+                    android:layout_toLeftOf="@id/simple_execute_button"
+                    android:text="단순히 리스트를 표시하는 예제입니다."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                <Button
+                    android:id="@id/simple_execute_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="실행" />
+            </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
