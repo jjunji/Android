@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 내서버의 데이터를 요청
+        // 내 서버의 데이터를 요청
         networkTask("http://192.168.10.217:8080/ccc.jsp");
     }
 
