@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,10 +16,13 @@ public class Adapter extends RecyclerView.Adapter<Holder> {
 
     List<Bbs> datas;
 
-    public Adapter(List<Bbs> datas){
-        this.datas = datas;
+    public Adapter(){
+        datas = new ArrayList<>();
     }
 
+    public void setList(List<Bbs> datas){
+        this.datas = datas;
+    }
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -28,12 +32,9 @@ public class Adapter extends RecyclerView.Adapter<Holder> {
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
-        Bbs data = datas.get(position);
-        holder.setTxtId(data.getId());
-        holder.setTxtAuthor(data.getAuthor());
-        holder.setTxtContent(data.getContent());
-        holder.setTxtDate(data.getDate());
-        holder.getTxtTitle(data.getTitle());
+        Bbs bbs = datas.get(position);
+        holder.textNo.setText(bbs.no);
+        holder.textTitle.setText(bbs.title);
     }
 
     @Override
