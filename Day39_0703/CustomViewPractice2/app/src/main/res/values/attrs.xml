@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Compound">
+        <attr name = "compoundLeft" format="reference"> </attr>  <!-- format: R.id. 으로 참조하기 위한..  -->
+    </declare-styleable>
+
+</resources>
