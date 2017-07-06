@@ -25,19 +25,22 @@ public class MainActivity extends AppCompatActivity implements TaskInterface{
         url : http://openAPI.seoul.go.kr:8088/(인증키)/xml/SearchArrivalTimeOfLine2SubwayByIDService/1/5/0201/1/1/
         인증키 : 56796c71646c706e38315841504774
      */
+
+      /*
+      
+       */
+
+
     static final String URL_PREFIX = "http://openAPI.seoul.go.kr:8088/";
     static final String URL_CERT   = "56796c71646c706e38315841504774/";
     static final String URL_MID    = "json/SearchArrivalTimeOfLine2SubwayByIDService/";
     // 1/40/0236/1/1/
 
-    // 한 페이지에 불러오는 데이터 수
-    //static final int PAGE_OFFSET = 10;
-
     int pageBegin = 1;
     int pageEnd = 10;
-    String code = "0236";
-    String weektag = "1";
-    String inouttag = "1";
+    String code = "0236"; // 전철 역 코드
+    String weektag = "1"; // 1: 평일
+    String inouttag = "1"; // 1: 상행, 2: 하행
 
     ListView listView;
     TextView textView;
@@ -60,17 +63,11 @@ public class MainActivity extends AppCompatActivity implements TaskInterface{
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,datas);
         listView.setAdapter(adapter);
 
-        //setPage(1);
 
         setUrl(pageBegin, pageEnd, code, weektag, inouttag);
 
         Remote.newTask(this);
     }
-
-/*    private void setPage(int page){
-        pageEnd = page * PAGE_OFFSET;
-        pageBegin = pageEnd - PAGE_OFFSET + 1;
-    }*/
 
     private void setUrl(int begin, int end, String code, String weektag, String inouttag){
         url = URL_PREFIX + URL_CERT + URL_MID +begin+"/"+end +"/" + code + "/" + weektag + "/" + inouttag + "/";
