@@ -1,5 +1,6 @@
 package com.example.jhjun.firebasebbs;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -10,39 +11,34 @@ import android.widget.TextView;
 
 public class Holder extends RecyclerView.ViewHolder {
 
-    private TextView textId;
     private TextView textTitle;
-    private TextView textAuthor;
+    private TextView textCount;
+    private int position;
 
-    public Holder(View itemView) {
-        super(itemView);
+    public Holder(View v) {
+        super(v);
+        textTitle = (TextView) v.findViewById(R.id.textTitle);
+        textCount = (TextView) v.findViewById(R.id.textDate);
 
-        textId = (TextView) itemView.findViewById(R.id.textId);
-        textTitle = (TextView) itemView.findViewById(R.id.textTitle);
-        textAuthor = (TextView) itemView.findViewById(R.id.textAuthor);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),ReadActivity.class);
+                intent.putExtra("LIST_POSITION", position);
+                v.getContext().startActivity(intent);
+            }
+        });
+    }
+    public void setTitle(String title){
+        textTitle.setText(title);
     }
 
-    public String getTextId() {
-        return textId.getText().toString();
+    public void setCount(long count){
+        textCount.setText(count + "");
     }
 
-    public void setTextId(String value) {
-        textId.setText(value);
+    public void setPosition(int position){
+        this.position = position;
     }
 
-    public String getTextTitle() {
-        return textTitle.getText().toString();
-    }
-
-    public void setTextTitle(String value) {
-        textTitle.setText(value);
-    }
-
-    public String getTextAuthor() {
-        return textAuthor.getText().toString();
-    }
-
-    public void setTextAuthor(String value) {
-        textAuthor.setText(value);
-    }
 }
