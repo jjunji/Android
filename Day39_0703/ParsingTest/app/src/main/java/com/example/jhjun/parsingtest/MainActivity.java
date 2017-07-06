@@ -4,8 +4,13 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.jhjun.parsingtest.domain.Data;
+import com.example.jhjun.parsingtest.domain.Row;
+import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -14,8 +19,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.jhjun.parsingtest.Remote.getData;
-
 public class MainActivity extends AppCompatActivity implements TaskInterface{
 
       /* 기초정보
@@ -23,29 +26,55 @@ public class MainActivity extends AppCompatActivity implements TaskInterface{
         인증키 : 56796c71646c706e38315841504774
      */
     static final String URL_PREFIX = "http://openAPI.seoul.go.kr:8088/";
-    static final String URL_CERT   = "56796c71646c706e38315841504774";
-    static final String URL_MID    = "/json/SearchArrivalTimeOfLine2SubwayByIDService/";
+    static final String URL_CERT   = "56796c71646c706e38315841504774/";
+    static final String URL_MID    = "json/SearchArrivalTimeOfLine2SubwayByIDService/";
+    // 1/40/0236/1/1/
 
     // 한 페이지에 불러오는 데이터 수
-    static final int PAGE_OFFSET = 10;
-    int page = 1;
+    //static final int PAGE_OFFSET = 10;
+
+    int pageBegin = 1;
+    int pageEnd = 10;
+    String code = "0236";
+    String weektag = "1";
+    String inouttag = "1";
 
     ListView listView;
     TextView textView;
     String url = "";
 
-    // 아답터에서 사용할 데이터 공간
+    // 어답터
+    ArrayAdapter<String> adapter;
+
+    // 어답터에서 사용할 데이터 공간
     final List<String> datas = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        listView = (ListView) findViewById(R.id.listView);
         textView = (TextView) findViewById(R.id.textView);
 
-        Task.newTask(this);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,datas);
+        listView.setAdapter(adapter);
+
+        //setPage(1);
+
+        setUrl(pageBegin, pageEnd, code, weektag, inouttag);
+
+        Remote.newTask(this);
     }
 
+/*    private void setPage(int page){
+        pageEnd = page * PAGE_OFFSET;
+        pageBegin = pageEnd - PAGE_OFFSET + 1;
+    }*/
+
+    private void setUrl(int begin, int end, String code, String weektag, String inouttag){
+        url = URL_PREFIX + URL_CERT + URL_MID +begin+"/"+end +"/" + code + "/" + weektag + "/" + inouttag + "/";
+    }
 
     @Override
     public String getUrl() {
@@ -53,7 +82,20 @@ public class MainActivity extends AppCompatActivity implements TaskInterface{
     }
 
     @Override
-    public void postExecute(String result) {
-        textView.setText(result);
+    public void postExecute(String jsonString){
+        Gson gson = new Gson();
+        // 1. json String -> class 로 변환
+        Data data = gson.fromJson(jsonString, Data.class);
+
+        Log.i("data : ","data : " + data);
+        Row rows[] = data.getSearchArrivalTimeOfLine2SubwayByIDService().getRow();
+
+        // 네트웍에서 가져온 데이터를 꺼내서 datas에 담아준다.
+        for(Row row : rows){
+            datas.add(row.getSUBWAYNAME());
+        }
+
+        // 그리고 adapter 를 갱신해준다.
+        adapter.notifyDataSetChanged();
     }
 }
