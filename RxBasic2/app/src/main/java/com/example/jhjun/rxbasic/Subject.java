@@ -31,7 +31,7 @@ public class Subject extends Thread{
     public void addObserver(Observer observer){
         observers.add(observer);
     }
-    // 옵저버를 공지하는 함수98
+    // 옵저버를 공지하는 함수
     public interface Observer{
         public void notification(String msg);
     }

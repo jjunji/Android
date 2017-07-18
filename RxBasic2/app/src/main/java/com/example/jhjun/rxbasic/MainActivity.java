@@ -23,19 +23,26 @@ public class MainActivity extends AppCompatActivity {
     }                     // initView() 가 위에 있음에도 뷰가 안그려졌다는 것은 컴파일시, 우선순위가 있어서 스레드를 먼저 찾아 수행한다는 것을 알 수 있음.
 
     int count = 0;
-
     private void initView() {
         button = (Button) findViewById(R.id.button);
         // 버튼이 클릭될 때 마다 Subject에 옵저버를 추가
         button.setOnClickListener(v->{
             count++;
-            subject.addObserver(new Subject.Observer() {
-                String myName = "Observer "+count;
-                @Override
-                public void notification(String msg) {
-                    System.out.println(myName + ":" + msg);
-                }
-            });
+            subject.addObserver(new ObserverImpl("Observer"+count));
         });
+    }
+
+    // 옵저버의 구현체
+    public class ObserverImpl implements Subject.Observer {
+        String myName = "";
+
+        public ObserverImpl(String name){
+            myName = name;
+        }
+
+        @Override
+        public void notification(String msg) {
+            System.out.println(myName+":"+msg);
+        }
     }
 }
