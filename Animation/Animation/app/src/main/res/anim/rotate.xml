@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rotate
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromDegrees="0"
+    android:toDegrees="720"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:duration="3000"
+    >
+</rotate>
+
+
+    <!-- pivotX,Y 를 50%로 잡지 않으면 뷰가 제자리에서 돌지 않는다 이유는 회전하는 중심점이 이미지 뷰의 가운데를 기준으로 하는 것이 아니라
+         이미지 뷰를 감싸고있는 사각형 배경의 좌측 상단으로 되있기 때문이다.-->
