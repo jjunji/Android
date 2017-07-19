@@ -1,5 +1,6 @@
 package com.example.jhjun.animation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -35,10 +36,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnRotate.setOnClickListener(this);
 
         imageView = (ImageView) findViewById(R.id.imageView);
+        imageView.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+
         Animation animation = null;
         switch (v.getId()) {
             case R.id.btnTrans:
@@ -52,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnAlpha:
                 animation = AnimationUtils.loadAnimation(this, R.anim.alpha);
+                break;
+            case R.id.imageView:
+                Intent intent = new Intent(this, WindmillActivity.class);
+                startActivity(intent);
                 break;
         }
         if (animation != null) {
