@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">에어비앤비검색</string>
+    <string name="action_settings">설정</string>
+
+    <string name="title_select_date">숙박 기간</string>
+    <string name="title_guest">게스트</string>
+    <string name="title_accommodation_type">숙소 유형</string>
+    <string name="title_price">가격 범위</string>
+    <string name="title_amenities">편의시설</string>
+
+</resources>
