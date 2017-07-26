@@ -1,5 +1,7 @@
 package com.example.jhjun.servernodejs;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -80,10 +82,12 @@ public class WriteActivity extends AppCompatActivity {
                         위의 두 가지를 구분하고
                         1번 또는 2번 결과값을 MainActivity로 넘겨서 처리
                      */
+                            setResult(Activity.RESULT_OK);  // 값을 인텐트에 담아 주기만 하는 것, -> onActivityResult에서는 값을 꺼내서 실
                             finish();
                         }
                 );
     }
+    // 포스트를 하고 나서 어떤 결과가 블럭안에서 처리되기 때문에 onDestroy() 를 호출하지 않아도 될 것 같다.
 
     private void initView() {
         editTitle = (EditText) findViewById(R.id.editTitle);

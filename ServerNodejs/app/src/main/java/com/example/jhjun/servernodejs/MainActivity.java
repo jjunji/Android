@@ -1,5 +1,6 @@
 package com.example.jhjun.servernodejs;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -19,11 +20,7 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.DELETE;
-import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.PUT;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,8 +52,24 @@ public class MainActivity extends AppCompatActivity {
                 호출시 startActivity 를 사용하면 onResume 처리를 따로 해줘야 된다.
              */
             Intent intent = new Intent(this, WriteActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, REQ_CODE);
         });
+    }
+
+    private final static int REQ_CODE = 101;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == Activity.RESULT_OK){
+            switch(requestCode){
+                case REQ_CODE:
+                    this.data.clear(); // 기존에 있던 데이터를 삭제해준다...
+                    // 중복되는 데이터가 있다면 갱신하지 않는 방향으로...
+                    loader();
+                    break;
+            }
+        }
     }
 
     private void loader() {
@@ -74,23 +87,23 @@ public class MainActivity extends AppCompatActivity {
 
         // 4. subscribe 등록
         observable.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        responseBody -> {
-                            // 1. 데이터를 꺼내고
-                            String jsonString = responseBody.string();
-                            Gson gson = new Gson();
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                responseBody -> {
+                    // 1. 데이터를 꺼내고
+                    String jsonString = responseBody.string();
+                    Gson gson = new Gson();
 //                    Type type = new TypeToken<List<Bbs>>(){}.getType(); // 컨버팅 하기 위한 타입지정
 //                    List<Bbs> data = gson.fromJson(jsonString, type);
-                            Bbs data[] = gson.fromJson(jsonString, Bbs[].class);
-                            // 2. 데이터를 아답터에 세팅하고
-                            for(Bbs bbs : data){
-                                this.data.add(bbs);
-                            }
-                            // 3. 아답터 갱신
-                            adapter.notifyDataSetChanged();
-                        }
-                );
+                    Bbs data[] = gson.fromJson(jsonString, Bbs[].class);
+                    // 2. 데이터를 아답터에 세팅하고
+                    for(Bbs bbs : data){
+                        this.data.add(bbs);
+                    }
+                    // 3. 아답터 갱신
+                    adapter.notifyDataSetChanged();
+                }
+            );
     }
 
 
