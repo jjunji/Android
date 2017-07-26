@@ -82,7 +82,7 @@ public class WriteActivity extends AppCompatActivity {
                         위의 두 가지를 구분하고
                         1번 또는 2번 결과값을 MainActivity로 넘겨서 처리
                      */
-                            setResult(Activity.RESULT_OK);  // 값을 인텐트에 담아 주기만 하는 것, -> onActivityResult에서는 값을 꺼내서 실
+                            setResult(Activity.RESULT_OK);  // 값을 인텐트에 담아 주기만 하는 것, -> onActivityResult에서는 값을 꺼내서 실행
                             finish();
                         }
                 );
