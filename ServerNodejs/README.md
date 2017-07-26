@@ -233,4 +233,8 @@ public class Bbs {
     String date;
 }
 ```
-
+---
+< 동작 화면 > 
+![초기 화면, db에 저장된 데이터 읽고 리스트로 보여줌](https://github.com/jjunji/Android/blob/master/ServerNodejs/capture/bbs_board.PNG)
+![글쓰기 화면](https://github.com/jjunji/Android/blob/master/ServerNodejs/capture/bbs_write.PNG)
+![글 작성 후 리스트 업데이트](https://github.com/jjunji/Android/blob/master/ServerNodejs/capture/bbs_post.PNG)
