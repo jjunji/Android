@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/selectPeriod"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/hint_start_date" />
+                    android:text="button" />
 
                 <Button
                     android:id="@+id/btnCheckout"
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/hint_end_date" />
+                    android:text="button" />
             </LinearLayout>
             <CalendarView
                 android:id="@+id/calendarView"
@@ -56,7 +56,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/guests"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -66,10 +66,50 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:orientation="vertical"></LinearLayout>
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="1" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="-" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="+" />
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/types"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -79,10 +119,50 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:orientation="vertical"></LinearLayout>
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Studio" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/checkbox_double_bed"
+                    android:button="@null" />
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="House" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </RadioGroup>
+
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -92,10 +172,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:orientation="vertical"></LinearLayout>
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/amenities"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -105,6 +194,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:gravity="center"
             android:orientation="vertical">
 
             <HorizontalScrollView
@@ -114,51 +204,41 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal" >
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <CheckBox
-                        android:id="@+id/checkBox10"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/checkBox"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="CheckBox" />
+                        android:text="Wifi" />
 
                     <CheckBox
-                        android:id="@+id/checkBox9"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/checkBox2"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="CheckBox" />
+                        android:text="Air Conditioner" />
 
                     <CheckBox
-                        android:id="@+id/checkBox8"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/checkBox3"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="CheckBox" />
+                        android:text="Refrigerator" />
 
                     <CheckBox
-                        android:id="@+id/checkBox7"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/checkBox4"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="CheckBox" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="CheckBox" />
+                        android:text="Parking" />
 
                     <CheckBox
                         android:id="@+id/checkBox5"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="CheckBox" />
+                        android:text="Elevator" />
                 </LinearLayout>
             </HorizontalScrollView>
+
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
