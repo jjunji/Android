@@ -1,7 +1,7 @@
 # Airbnb - search
----
 
-뷰에 들어가는 문자열 미리 정의하기
+
+### 뷰에 들어가는 문자열 미리 정의하기
 
 * 아래와 같은 방법으로 미리 문자를 지정해 놓으면, 해당 문자가 삽입되는 뷰가 여러개인 경우 다른 문자로 바꾸게 된다면 한번에 처리할 수 있다. 또한 다른 나라 언어를 정의한 디렉토리를 만들어서 관리하면, 다국 언어를 지원할 수 있다.
  ex) project - res - 새 디렉토리 생성 - values-ko(대한민국) - 국가코드 입력 후 생성
@@ -38,7 +38,7 @@
 </resources>
 ```
 ---
-안드로이드 Button에 html코드를 입력하는 방법
+### 안드로이드 Button에 html코드를 입력하는 방법
 ```java
     private void setCalendarButtonText() {
         setButtonText(btnCheckin, getString(R.string.hint_start_date), getString(R.string.hint_select_date));
@@ -60,7 +60,7 @@ TextView 의 text 셋팅값 파라미터로 넘기면 된다.
   setHtmlText( ) 로 전달했다.
   
 ---
-버튼 text를 html코드로 변환해 주는 부분
+### 버튼 text를 html코드로 변환해 주는 부분
 ```java
 public class StringUtil {
     public static void setHtmlText(TextView target, String text){   // StringUtil클래스로 함수로 만들어서 뺄 때는 인자로 TextView를 받는다 -> setText가 TextView를 상속받았기 때문
@@ -79,7 +79,8 @@ public class StringUtil {
    .setAllCaps(false); 를 입력해 설정을 풀어줄 수 있다.
 
 ---
-켈린더뷰(달력) 사용하기
+### 켈린더뷰(달력) 사용하기
+![](https://github.com/jjunji/Android/blob/master/AirBnbSearch/capture/calendarView.jpg)
 ```java
     CalendarView.OnDateChangeListener dateChangeListener = new CalendarView.OnDateChangeListener() {
         @Override
@@ -106,7 +107,8 @@ public class StringUtil {
 *  체크인, 체크아웃 버튼에 따라 상태 값을 저장하고(flag) 각 버튼에 해당하는 날짜를 기억한다.
 
 ---
-라디오 버튼 커스텀하기
+### 라디오 버튼 커스텀하기
+![](https://github.com/jjunji/Android/blob/master/AirBnbSearch/capture/radioCustom_2.jpg) ![](https://github.com/jjunji/Android/blob/master/AirBnbSearch/capture/radioCustom_1.jpg)
 
 * project 보기 모드로 디렉토리 트리를 띄운 후 res 에서 drawable-xxxhdpi 디렉토리를 생성한다.
 *  라디오 버튼에 이용할 이미지 파일을 업로드
