@@ -43,13 +43,11 @@
     <GridView
         android:id="@+id/monthView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:numColumns="7"
         android:stretchMode="columnWidth"
         android:horizontalSpacing="1dp"
-        android:verticalSpacing="1dp"
-        android:background="#ffbbbbbb">
-    </GridView>
+        android:verticalSpacing="1dp" />
 
 
 </LinearLayout>
