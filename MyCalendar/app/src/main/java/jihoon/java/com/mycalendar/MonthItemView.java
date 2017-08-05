@@ -44,6 +44,8 @@ public class MonthItemView extends RelativeLayout{
             textView.setTextColor(Color.RED);
         }else if( position % 7 == 6 ){
             textView.setTextColor(Color.BLUE);
+        } else{
+            textView.setTextColor(Color.BLACK);
         }
         // day(숫자) -> 문자로
         textView.setText(day);
