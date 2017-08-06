@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtMonth;
     private GridView monthView;
     private MonthAdapter adapter;
-    public ArrayList<String> dayList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         txtMonth = (TextView) findViewById(R.id.txtMonth);
         monthView = (GridView) findViewById(R.id.monthView);
-
-        dayList = new ArrayList<String>();
 
         adapter = new MonthAdapter();
         monthView.setAdapter(adapter);
@@ -71,25 +69,19 @@ public class MainActivity extends AppCompatActivity {
     // 선택위젯 활용 -> 어답터 생성
     class MonthAdapter extends BaseAdapter{
 
-        //MonthItem[] items;
         Calendar calendar;
+        ArrayList<String> dayList = new ArrayList<String>();
 
-        int firstDay;
-        int lastDay;
-        int curYear;
-        int curMonth;
+        int lastDay; // 마지막 날
+        int curYear; // 현재 년도
+        int curMonth; // 현재 월
 
         @RequiresApi(api = Build.VERSION_CODES.N)
         public MonthAdapter() {
-            //items = new MonthItem[ 7 * 6 ];
 
             Date date = new Date();
             calendar = Calendar.getInstance();
             calendar.setTime(date);  // calendar 에 현재 시간 설정.
-            //Log.e("CalendarActivity", "date ============"+calendar);
-            //recalculate();
-            //resetDayNumbers();
-            //resetDayNumbers2(getCurrentMonth());
         }
 
 
@@ -97,21 +89,21 @@ public class MainActivity extends AppCompatActivity {
         public void setNowMonth(){
             calendar.add(Calendar.MONTH, curMonth);
             recalculate(); // 해당 월의 첫날, 마지막 날 계산
-            resetDayNumbers2(curMonth); // 실제 아이템 뷰에 넣어서 뷰로 보여줌
+            resetDayNumbers2(); // 실제 아이템 뷰에 넣어서 뷰로 보여줌
         }
 
         @RequiresApi(api = Build.VERSION_CODES.N)
         public void setPreviousMonth(){
             calendar.add(Calendar.MONTH, -1); // -1 : 이전 달로 이동
             recalculate(); // 해당 월의 첫날, 마지막 날 계산
-            resetDayNumbers2(curMonth); // 실제 아이템 뷰에 넣어서 뷰로 보여줌
+            resetDayNumbers2(); // 실제 아이템 뷰에 넣어서 뷰로 보여줌
         }
 
         @RequiresApi(api = Build.VERSION_CODES.N)
         public void setNextMonth(){
             calendar.add(Calendar.MONTH, +1);
             recalculate(); // 해당 월의 첫날, 마지막 날 계산
-            resetDayNumbers2(curMonth); // 실제 아이템 뷰에 넣어서 뷰로 보여줌
+            resetDayNumbers2(); // 실제 아이템 뷰에 넣어서 뷰로 보여줌
         }
 
         public int getCurrentYear(){
@@ -126,27 +118,23 @@ public class MainActivity extends AppCompatActivity {
 
         // 시작하는 요일 확인
         @RequiresApi(api = Build.VERSION_CODES.N)
+        // 달력을 선택한 달의 연도 & 달로 설정하고, 1일이 시작되는 요일을 재계산하는 메소드
         public void recalculate() {
             // 날짜를 현재 달의 1일로 설정.
-            calendar.set(Calendar.DAY_OF_MONTH, 1);  // 8월 1일 (화요일)
-            Log.i("Main","DAY_OF_MONTH==============="+ Calendar.DAY_OF_MONTH);
-            // 해당되는 주에서 몇번째 day 인지를 가져온다.
-            int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
-            Log.i("Main","DAY_OF_WEEK==============="+ Calendar.DAY_OF_WEEK);
-            firstDay = getFirstDay(dayOfWeek);  // 현재 월에 첫번째 날이 컬럼에 index로 따지면 어떤 값인지 확인.
-
+            calendar.set(Calendar.DAY_OF_MONTH, 1);  // -> 1 ex) 현재 8월이면 8월 1일 에서 1을 가져옴.
             curYear = calendar.get(Calendar.YEAR);  // 2017
-            Log.i("Main","curYear==============="+ curYear);
             curMonth = calendar.get(Calendar.MONTH);  // 7 (0 부터 시작) -> 8월
-            Log.i("Main","curMonth==============="+ curMonth);
             lastDay = getLastDay();  // 셋팅 달의 마지막 날이 몇일인지 출력 -> 31
-            Log.i("Main","lastDay==============="+ lastDay);
 
+            Log.i("Main","DAY_OF_MONTH==============="+ Calendar.DAY_OF_MONTH);
+            Log.i("Main","curYear==============="+ curYear);
+            Log.i("Main","curMonth==============="+ curMonth);
+            Log.i("Main","lastDay==============="+ lastDay);
         }
 
 
         @RequiresApi(api = Build.VERSION_CODES.N)
-        public void resetDayNumbers2(int month){
+        public void resetDayNumbers2(){
 
             dayList.clear();
             dayList.add("일");
@@ -157,22 +145,22 @@ public class MainActivity extends AppCompatActivity {
             dayList.add("금");
             dayList.add("토");
 
-            calendar.set(Calendar.MONTH, month);  // 달력의 월 설정 -> 7(8월)
+            int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK); // 위에서 1일로 셋팅했으므로 1일이 무슨 요일인지 확인 -> 3(화)
+            Log.i("Main","DAY_OF_WEEK==============="+ dayOfWeek);
 
-            int dayNum = calendar.get(java.util.Calendar.DAY_OF_WEEK);
-            for (int i = 1; i < dayNum; i++) {
+            for (int i = 1; i < dayOfWeek; i++) {
                 dayList.add("");
             }
 
-            for (int i = 0; i < calendar.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
-                    dayList.add("" + (i + 1));
+            for (int i = 1; i <= lastDay; i++) {
+                    dayList.add("" + (i));
             }
         }
 
         // 각 월 마다의 마지막 날 반환
         public int getLastDay() {
             switch (curMonth){
-                case 0:
+                case 0: // 1월
                 case 2:
                 case 4:
                 case 6:
@@ -193,7 +181,6 @@ public class MainActivity extends AppCompatActivity {
                     } else{
                         return 28;
                 }
-
             }
         }
         // 해당 주에 요일 가져오기 , 칼럼 index 구분

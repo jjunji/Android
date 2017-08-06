@@ -47,7 +47,7 @@ public class MonthItemView extends RelativeLayout{
         } else{
             textView.setTextColor(Color.BLACK);
         }
-        // day(숫자) -> 문자로
+
         textView.setText(day);
     }
 }
