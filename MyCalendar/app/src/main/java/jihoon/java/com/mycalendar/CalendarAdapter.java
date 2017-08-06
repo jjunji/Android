@@ -1,5 +1,6 @@
 package jihoon.java.com.mycalendar;
 
+import android.content.Context;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -22,36 +23,33 @@ import java.util.Date;
 public class CalendarAdapter extends BaseAdapter{
 
     Calendar calendar;
+    ArrayList<String> dayList = new ArrayList<String>();
 
     int lastDay; // 마지막 날
     int curYear; // 현재 년도
     int curMonth; // 현재 월
-    ArrayList<String> dayList = new ArrayList<>();
+    Context context;
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    public CalendarAdapter() {
+    public CalendarAdapter(Context context) {
 
         Date date = new Date();
         calendar = Calendar.getInstance();
         calendar.setTime(date);  // calendar 에 현재 시간 설정.
+        this.context = context;
     }
 
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public void setNowMonth(){
         calendar.add(Calendar.MONTH, curMonth);
         recalculate(); // 해당 월의 첫날, 마지막 날 계산
         resetDayNumbers2(); // 실제 아이템 뷰에 넣어서 뷰로 보여줌
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public void setPreviousMonth(){
         calendar.add(Calendar.MONTH, -1); // -1 : 이전 달로 이동
         recalculate(); // 해당 월의 첫날, 마지막 날 계산
         resetDayNumbers2(); // 실제 아이템 뷰에 넣어서 뷰로 보여줌
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public void setNextMonth(){
         calendar.add(Calendar.MONTH, +1);
         recalculate(); // 해당 월의 첫날, 마지막 날 계산
@@ -68,8 +66,6 @@ public class CalendarAdapter extends BaseAdapter{
 
     //------------- 어답터 생성 -> 메인액티비 안에서 그리드뷰안에 설정 할 수 있게 됨.----------------
 
-    // 시작하는 요일 확인
-    @RequiresApi(api = Build.VERSION_CODES.N)
     // 달력을 선택한 달의 연도 & 달로 설정하고, 1일이 시작되는 요일을 재계산하는 메소드
     public void recalculate() {
         // 날짜를 현재 달의 1일로 설정.
@@ -84,8 +80,6 @@ public class CalendarAdapter extends BaseAdapter{
         Log.i("Main","lastDay==============="+ lastDay);
     }
 
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
     public void resetDayNumbers2(){
 
         dayList.clear();
@@ -175,9 +169,7 @@ public class CalendarAdapter extends BaseAdapter{
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        MonthItemView view = null;
-
-        // 각 데이터들이 어디에 들어가 있는지
+        MonthItemView view = new MonthItemView(context);
 
         view.setDay(dayList.get(position), position);
         //view.setDay(items[position].day, position);

@@ -1,6 +1,7 @@
 package jihoon.java.com.mycalendar;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView txtMonth;
     private GridView monthView;
-    private MonthAdapter adapter;
+    //private MonthAdapter adapter;
+    CalendarAdapter adapter;
 
 
     @Override
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         txtMonth = (TextView) findViewById(R.id.txtMonth);
         monthView = (GridView) findViewById(R.id.monthView);
 
-        adapter = new MonthAdapter();
+        adapter = new CalendarAdapter(getApplicationContext());
         monthView.setAdapter(adapter);
         adapter.setNowMonth();
         txtMonth.setText(adapter.getCurrentYear() + "년" + adapter.getCurrentMonth() + "월");
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // 선택위젯 활용 -> 어답터 생성
-    class MonthAdapter extends BaseAdapter{
+ /*   class MonthAdapter extends BaseAdapter{
 
         Calendar calendar;
         ArrayList<String> dayList = new ArrayList<String>();
@@ -245,6 +247,6 @@ public class MainActivity extends AppCompatActivity {
 
             return view;
         }
-    }
+    }*/
 
 }
