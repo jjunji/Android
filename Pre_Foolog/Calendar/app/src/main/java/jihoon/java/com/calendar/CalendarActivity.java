@@ -51,10 +51,13 @@ public class CalendarActivity extends Activity {
 
         // 오늘에 날짜를 세팅 해준다.
         long now = System.currentTimeMillis();
+        Log.e("CalendarActivity", "now ============"+now);
         final Date date = new Date(now);
+        Log.e("CalendarActivity", "date ============"+date);
         //연,월,일을 따로 저장
         final SimpleDateFormat curYearFormat = new SimpleDateFormat("yyyy", Locale.KOREA); // 2017
         Log.e("CalendarActivity", "curYear =========="+curYearFormat.format(date));
+        Log.e("CalendarActivity", "curYear =========="+curYearFormat);
         final SimpleDateFormat curMonthFormat = new SimpleDateFormat("MM", Locale.KOREA);  // 08
         Log.e("CalendarActivity", "curMonth =========="+curMonthFormat.format(date));
         final SimpleDateFormat curDayFormat = new SimpleDateFormat("dd", Locale.KOREA);  // 04
@@ -75,15 +78,16 @@ public class CalendarActivity extends Activity {
 
         mCal = Calendar.getInstance();
 
-        //이번달 1일 무슨요일인지 판단 mCal.set(Year,Month,Day)
+        // set(2017, 7, 1) -> 날짜를 현재 달(2017/8/1)의 1일로 설정.
         mCal.set(Integer.parseInt(curYearFormat.format(date)), Integer.parseInt(curMonthFormat.format(date)) - 1, 1);
         int dayNum = mCal.get(Calendar.DAY_OF_WEEK);
+        Log.e("cal","dayNum================"+ dayNum); // 3
 
         //1일 - 요일 매칭 시키기 위해 공백 add
         for (int i = 1; i < dayNum; i++) {
             dayList.add("");
         }
-
+                        //
         setCalendarDate(mCal.get(Calendar.MONTH) + 1);
 
         gridAdapter = new GridAdapter(getApplicationContext(), dayList);
@@ -98,8 +102,8 @@ public class CalendarActivity extends Activity {
     private void setCalendarDate(int month) {
         mCal.set(Calendar.MONTH, month - 1);
 
-        for (int i = 0; i < mCal.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
-            dayList.add("" + (i + 1));
+            for (int i = 0; i < mCal.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
+                dayList.add("" + (i + 1));
         }
     }
 
