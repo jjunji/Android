@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView listView;
+    int k = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         // 3. 연결
         listView.setAdapter(adapter);
         // 4. 레이아웃 매니저
-        listView.setLayoutManager(new GridLayoutManager(this, 5));
+        listView.setLayoutManager(new GridLayoutManager(this, k)); // 파라미터로 한 줄에 표현 할 수 정의
     }
 }
 
@@ -59,8 +60,6 @@ class CustomRecycler extends RecyclerView.Adapter<CustomRecycler.Holder>{
         Data data = datas.get(position);
         // 2. 데이터를 세팅
         holder.setImage(data.resId);
-        holder.setNo(data.no);
-        holder.setTitle(data.title);
     }
 
     // 데이터의 전체 개수
@@ -77,34 +76,23 @@ class CustomRecycler extends RecyclerView.Adapter<CustomRecycler.Holder>{
         public Holder(View itemView) {
             super(itemView);
             image = (ImageView) itemView.findViewById(R.id.image);
-            no = (TextView) itemView.findViewById(R.id.txtNo);
-            title = (TextView) itemView.findViewById(R.id.txtTitle);
+           // no = (TextView) itemView.findViewById(R.id.txtNo);
+           // title = (TextView) itemView.findViewById(R.id.txtTitle);
         }
 
         public void setImage(int resId){
             image.setImageResource(resId);
         }
 
-        public void setNo(int no){
-            this.no.setText(no+"");
-        }
-
-        public void setTitle(String title){
-            this.title.setText(title);
-        }
     }
 }
 
 class Loader {
     public static ArrayList<Data> getData(Context context){
         ArrayList<Data> result = new ArrayList<>();
-        for(int i=1 ; i<=10 ; i++){
+        for(int i=1 ; i<7; i++){ // 반복 할 수
             Data data = new Data();
-            data.no = i;
-            data.title = "자동차";
-
-            data.setImage("car"+i, context);
-
+            data.setImage("tag_circle_korea", context);
             result.add(data);
         }
         return result;
@@ -120,6 +108,6 @@ class Data {
     public void setImage(String str, Context context){
         image = str;
         // 문자열로 리소스 아이디 가져오기
-        resId = context.getResources().getIdentifier(image, "mipmap", context.getPackageName());
+        resId = context.getResources().getIdentifier(image, "drawable", context.getPackageName());
     }
 }
