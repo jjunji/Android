@@ -8,14 +8,6 @@
     android:orientation="vertical"
     tools:context="jihoon.java.com.customview.MainActivity">
 
-    <GridLayout
-        android:id="@+id/calendar"
-        android:layout_width="match_parent"
-        android:layout_height="323dp"
-        android:columnCount="7"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"></GridLayout>
-
     <Button
         android:id="@+id/red"
         android:layout_width="match_parent"
@@ -33,5 +25,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Button" />
+
+    <GridLayout
+        android:id="@+id/calendar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:columnCount="7">
+
+    </GridLayout>
 
 </LinearLayout>

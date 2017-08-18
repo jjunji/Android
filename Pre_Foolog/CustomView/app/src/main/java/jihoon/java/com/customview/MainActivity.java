@@ -15,10 +15,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cal = (GridLayout) findViewById(R.id.calendar);
-        for(int i=0; i<30; i++){
+        for (int i = 0; i < 30; i++) {
             CalendarView temp = new CalendarView(this);
             cal.addView(temp);
-            if(i==15){
+            if (i == 15) {
                 target = temp;
             }
         }
@@ -42,5 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 target.addDot(CalendarView.GREEN);
             }
         });
+
     }
 }
