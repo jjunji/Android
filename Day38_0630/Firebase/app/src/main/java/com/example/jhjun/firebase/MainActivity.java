@@ -30,9 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // 파이베이스 데이터베이스 연결
-        database = FirebaseDatabase.getInstance();
+        database = FirebaseDatabase.getInstance();  // firebase 인스턴스 얻기, json구조와 흡사
         // 레퍼런스를 가져옴
-        myRef = database.getReference("message2");
+        myRef = database.getReference("message2");  // 처음에 노드가 하나 생성된다고 생각.
+                        // getReference ->  -> 노드의 이름을 지칭
 
         textView = (TextView) findViewById(R.id.textView);
         editText = (EditText) findViewById(R.id.editText);
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String value = dataSnapshot.getValue(String.class);
+                String value = dataSnapshot.getValue(String.class); // getValue( ) 받을 데이터 타입 명시, 모델 클래스가 있다면 객체로 받겠지
                 textView.setText(value);
             }
 
