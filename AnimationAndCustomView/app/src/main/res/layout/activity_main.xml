@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/main"
+    tools:context="jihoon.java.com.animationandcustomview.SingleFragmentActivity">
+
+    <jihoon.java.com.animationandcustomview.MyCompositeView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:leftButtonColor="@color/colorAccent">
+    </jihoon.java.com.animationandcustomview.MyCompositeView>
+
+    <jihoon.java.com.animationandcustomview.MyCompositeView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:leftButtonColor="@color/colorPrimary">
+    </jihoon.java.com.animationandcustomview.MyCompositeView>
+
+    <jihoon.java.com.animationandcustomview.MyCompositeView
+        app:leftButtonColor="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+    </jihoon.java.com.animationandcustomview.MyCompositeView>
+
+</LinearLayout>
