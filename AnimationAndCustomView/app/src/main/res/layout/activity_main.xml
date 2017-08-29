@@ -11,8 +11,7 @@
     <jihoon.java.com.animationandcustomview.MyCompositeView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:leftButtonColor="@color/colorAccent">
-    </jihoon.java.com.animationandcustomview.MyCompositeView>
+        app:leftButtonColor="@color/colorAccent"></jihoon.java.com.animationandcustomview.MyCompositeView>
 
     <jihoon.java.com.animationandcustomview.MyCompositeView
         android:layout_width="match_parent"
@@ -26,4 +25,8 @@
         android:layout_height="100dp">
     </jihoon.java.com.animationandcustomview.MyCompositeView>
 
+    <jihoon.java.com.animationandcustomview.MyCustomSquare
+        android:layout_width="100dp"
+        android:layout_height="wrap_content">
+    </jihoon.java.com.animationandcustomview.MyCustomSquare>
 </LinearLayout>
