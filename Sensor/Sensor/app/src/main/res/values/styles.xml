@@ -8,4 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <declare-styleable name="Graph">
+        <attr name="graphColor" format="color"></attr>
+    </declare-styleable>
 </resources>
