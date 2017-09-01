@@ -1,5 +1,6 @@
 package jihoon.java.com.sensor;
 
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -15,53 +16,67 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener{
+public class MainActivity extends AppCompatActivity implements SensorEventListener {
+    private SensorManager manager;
+    private Sensor accelrometer;
+    public Graph mGraph, mGraphy, mGraphz;
+    public TextView textX, textY, textZ;
+    public Sensor gravity;
 
-    private SensorManager sm;
-    private Sensor s;
-
-    private Graph mGraph;
-    private Graph mGraphY;
-    private Graph mGraphZ;
-    private TextView mTxtView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sm = (SensorManager) getSystemService(SENSOR_SERVICE); // 센서 서비스 가져오기
-        //s = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        s = sm.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        mGraph = (Graph) findViewById(R.id.graph);
+        mGraphy = (Graph) findViewById(R.id.graphy);
+        mGraphz = (Graph) findViewById(R.id.graphz);
+/*        textX = (TextView) findViewById(R.id.textX);
+        textY = (TextView) findViewById(R.id.textY);
+        textZ = (TextView) findViewById(R.id.textZ);*/
+        manager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        //List<Sensor> sensors = manager.getSensorList(Sensor.TYPE_ACCELEROMETER);
+        accelrometer = manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        //gravity = manager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+        //accelrometer = manager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
 
-        mGraph = (Graph) findViewById(R.id.mGraph);
-        mGraphY = (Graph) findViewById(R.id.mGraph2);
-        mGraphZ = (Graph) findViewById(R.id.mGraph3);
 
-        mTxtView = (TextView) findViewById(R.id.mTxtView);
+        /*for(Sensor s : sensors){
+            StringBuilder sb = new StringBuilder();
+            sb.append(s.getName()).append("\n");
+            sb.append(s.getType()).append("\n");
+            sb.append(s.getVendor()).append("\n");
+            sb.append(s.getMinDelay()).append("\n");
+            sb.append(s.getResolution()).append("\n\n");
+            Log.e("SensorInfo", sb.toString());*/
     }
+
 
     @Override
     protected void onResume() {
         super.onResume();
-        sm.registerListener(this, s, SensorManager.SENSOR_DELAY_GAME);
+        manager.registerListener(this, accelrometer, SensorManager.SENSOR_DELAY_FASTEST);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        sm.unregisterListener(this);
+        manager.unregisterListener(this);
     }
 
     @Override
-    public void onSensorChanged(SensorEvent event) {
-        float x = event.values[0];
-        float y = event.values[1];
-        float z = event.values[2];
-        Log.e("Sensor value called ========",Arrays.toString(event.values));
-        mGraph.setPoint((int)x *100);
-        mGraphY.setPoint((int)y *100);
-        mGraphZ.setPoint((int)z *100);
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        float x = sensorEvent.values[0];
+        float y = sensorEvent.values[1];
+        float z = sensorEvent.values[2];
+        Log.e("accelometer===", Arrays.toString((sensorEvent.values)));
+        mGraph.setPoint((int) x * 10);
+        mGraph.setBackgroundColor(Color.BLACK);
+        mGraphy.setPoint((int) y * 10);
+        mGraphy.setBackgroundColor(Color.GRAY);
+        mGraphz.setPoint((int) z * 10);
+        mGraphz.setBackgroundColor(Color.DKGRAY);
     }
 
     @Override

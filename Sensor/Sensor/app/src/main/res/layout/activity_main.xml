@@ -9,25 +9,22 @@
     tools:context="jihoon.java.com.sensor.MainActivity">
 
     <jihoon.java.com.sensor.Graph
-        android:id="@+id/mGraph"
+        android:id="@+id/graph"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/colorPrimary"/>
+        android:layout_weight="1" />
 
     <jihoon.java.com.sensor.Graph
-        android:id="@+id/mGraph2"
+        android:id="@+id/graphy"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/colorAccent"/>
+        android:layout_weight="1" />
 
     <jihoon.java.com.sensor.Graph
-        android:id="@+id/mGraph3"
+        android:id="@+id/graphz"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/colorPrimary"/>
+        android:layout_weight="1"/>
 
     <TextView
         android:id="@+id/mTxtView"
