@@ -30,7 +30,4 @@ public class Task {
             }
         }.execute(taskinterface.getUrl());
     }
-
-
-
 }
