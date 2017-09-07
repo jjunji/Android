@@ -48,7 +48,7 @@ json / xml 에 상관없음. -> json, xml 객체로 접근하는 것은 Parsing을 했기 때문에 
 throws Exception
 try - catch
 ```
-try - catch 문 : try~catch 가 감싸고 있는 부분에서 결과 처리를 하겠다는 것.
+try - catch 문 : try~catch 가 감싸고 있는 부분에서 결과 처리를 하겠다는 것. <br>
 throw Exception : 에러 자체를 호출한 측에서 넘겨 받는다.
 -> 호출 측에서 UI를 컨트롤 하므로써 오류 메시지에 대한 결과 처리를 선택적으로 표준화 할 수 있음. (Toast,  팝업 등등 )
 -> 호출 측에서 try - catch 처리
