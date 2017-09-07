@@ -1,5 +1,4 @@
 # HttpUrlConnection
-***
 
 네트워크 통신은 Main Thread에서 작업 할 수 없도록 강제 되어 있다.
 -> Sub Thread 이용 or AsyncTask 이용
@@ -89,3 +88,68 @@ onPostExecute( ) 함수로 전달되는 result 는 String 타입 이므로 세번째 제네릭은 St
 화면에 결과를 출력하려면..
 doInBackground( ) 를 통해 SubThread에서 처리한 결과를 메인 스레드로 넘겨야한다.
 -> onPostExecute(result)
+
+***
+##JSON
+```
+1. json 기본형
+json 오브젝트 = { 중괄호와 중괄호 사이} -> 우리가 클래스 만드는 것처럼..
+{ "변수명" : "값", "변수명2" : "값2" }
+
+json.변수명 < 값
+
+2. json 서브트리 -> 하나일때
+{ "변수명" : json 오브젝트 }
+{ "변수명 :" { "서브명" : "값", "서브명2" : "값2" }}
+
+json.변수명.서브명 < 값
+
+3. json 배열 ( 오브젝트가 여러개 들어가 있는 것.) -> 여러개일때
+{ "변수명" : json 배열 }
+{ "변수명" : [
+  { "서브명" : "값", "서브명2" : "값2", "서브명3" : "값3"},
+  { "서브명" : "값", "서브명2" : "값2", "서브명3" : "값3"},
+  { "서브명" : "값", "서브명2" : "값2", "서브명3" : "값3"}
+       ]
+}
+
+**사용방법**
+ 
+json.변수명[0].서브명
+json.변수명[1].서브명
+```
+
+
+##REST API
+
+HTTP URI로 잘표현된 리소스에 대한 행위를 HTTP METHOD로 정의한 것.
+여기서 리소스는 json, xml 등 다양한 형식이 될 수 있다.
+
+<메서드>
+REST API에서는 HTTP 메서드를 그대로 사용하는데, CRUD 
+(Create, Read, Update, Delete)에 해당하는 4가지 메서드를 사용한다.
+?POST : POST를 통해 해당 URI를 요청하면 리소스를 생성한다.
+?GET : GET을 통해 리소스를 조회, 해당 도큐먼트에 대한 자세한 정보를 가져온다.
+?PUT : 해당 리소스를 수정.
+?DELETE : 리소스 삭제.
+
+REST API 형식
+ http://openAPI.seoul.go.kr:8088/sample/json/GeoInfoPoolWGS/1/5
+ 
+openAPI.seoul.go.kr    /sample/json/GeoInfoPoolWGS/1/5
+```
+openAPI.seoul.go.kr
+? key       = sample    ->  api 키 값
+& type      = json ->  데이터의 파일 형식
+& service   = GeoInfoPoolWGS   -> 제공하는 서비스
+& start     = 1    -> 데이터 시작 위치
+& end       = 5    -> 데이터 끝 위치
+```
+웹에 restApi형태의 주소를 보내고 값을 받는다.
+
+ 
+
+Open API 활용하기
+?API로 데이터 가져오기 - 서울시 공공데이터 OPEN API
+?xml을 json으로 변환 - http://codebeautify.org/jsonviewer
+?json에서 pojo 클래스로 변환 - http://pojo.sodhanalibrary.com/
