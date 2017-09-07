@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 기존 MainActivity에는 네트워크 통신 메소드와 데이터를 가져오는 메소드가 같이 있음.
 
 
-###1.  getData( ) 메소드를 Remote.class 로 분리
+### 1.  getData( ) 메소드를 Remote.class 로 분리
 ```java
 public class Remote {
     public static String getData(String url) throws Exception{
