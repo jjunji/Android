@@ -48,8 +48,8 @@ json / xml 에 상관없음. -> json, xml 객체로 접근하는 것은 Parsing을 했기 때문에 
 throws Exception
 try - catch
 ```
-**try - catch** 문 : try~catch 가 감싸고 있는 부분에서 결과 처리를 하겠다는 것.
-**throw Exception** : 에러 자체를 호출한 측에서 넘겨 받는다.
+try - catch 문 : try~catch 가 감싸고 있는 부분에서 결과 처리를 하겠다는 것.
+throw Exception : 에러 자체를 호출한 측에서 넘겨 받는다.
 -> 호출 측에서 UI를 컨트롤 하므로써 오류 메시지에 대한 결과 처리를 선택적으로 표준화 할 수 있음. (Toast,  팝업 등등 )
 -> 호출 측에서 try - catch 처리
 
@@ -90,7 +90,7 @@ doInBackground( ) 를 통해 SubThread에서 처리한 결과를 메인 스레드로 넘겨야한다.
 -> onPostExecute(result)
 
 ***
-##JSON
+## JSON
 ```
 1. json 기본형
 json 오브젝트 = { 중괄호와 중괄호 사이} -> 우리가 클래스 만드는 것처럼..
@@ -120,18 +120,19 @@ json.변수명[1].서브명
 ```
 
 
-##REST API
+## REST API
 
 HTTP URI로 잘표현된 리소스에 대한 행위를 HTTP METHOD로 정의한 것.
 여기서 리소스는 json, xml 등 다양한 형식이 될 수 있다.
 
-<메서드>
-REST API에서는 HTTP 메서드를 그대로 사용하는데, CRUD 
+메서드
+
+REST API에서는 HTTP 메서드를 그대로 사용하는데, CRUD
 (Create, Read, Update, Delete)에 해당하는 4가지 메서드를 사용한다.
-?POST : POST를 통해 해당 URI를 요청하면 리소스를 생성한다.
-?GET : GET을 통해 리소스를 조회, 해당 도큐먼트에 대한 자세한 정보를 가져온다.
-?PUT : 해당 리소스를 수정.
-?DELETE : 리소스 삭제.
+* POST : POST를 통해 해당 URI를 요청하면 리소스를 생성한다.
+* GET : GET을 통해 리소스를 조회, 해당 도큐먼트에 대한 자세한 정보를 가져온다.
+* PUT : 해당 리소스를 수정.
+* DELETE : 리소스 삭제.
 
 REST API 형식
  http://openAPI.seoul.go.kr:8088/sample/json/GeoInfoPoolWGS/1/5
@@ -147,9 +148,8 @@ openAPI.seoul.go.kr
 ```
 웹에 restApi형태의 주소를 보내고 값을 받는다.
 
- 
-
 Open API 활용하기
-?API로 데이터 가져오기 - 서울시 공공데이터 OPEN API
-?xml을 json으로 변환 - http://codebeautify.org/jsonviewer
-?json에서 pojo 클래스로 변환 - http://pojo.sodhanalibrary.com/
+* API로 데이터 가져오기 - 서울시 공공데이터 OPEN API
+* xml을 json으로 변환 - http://codebeautify.org/jsonviewer
+* json에서 pojo 클래스로 변환 - http://pojo.sodhanalibrary.com/
+
