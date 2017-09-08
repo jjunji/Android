@@ -1,20 +1,22 @@
-package com.example.jhjun.recycler;
+# RecyclerView
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
+**RecyclerView(¸®»çÀÌÅ¬·¯ºä)**
 
-import java.util.ArrayList;
+¸®½ºÆ®¸¦ Ç¥½ÃÇÏ´Â À§Á¬, RecyclerView´Â ¸¹Àº µ¥ÀÌÅÍ¸¦ ÇÑÁ¤µÈ View¸¦ Àç»ç¿ëÇØ¼­ Ç¥½ÃÇÑ´Ù. 
 
+ListView·Î ±¸ÇöÇÑ ÄÚµå¸¦ RecyclerView·Î ¹Ù²ãº¸±â.
+
+¸®»çÀÌÅ¬·¯ ºä´Â ºä È¦´õ ÆĞÅÏÀ» ÀÇ¹«È­ÇÏ°í ´Ù¾çÇÑ Ãß°¡ ±â´ÉÀ» ¸®½ºÆ®¿¡ ±¸ÇöÇÑ °Í. 
+***
+RecyclerView ´Â Àß ¸¸µé¾îÁø mvp ÆĞÅÏ.
+![MVP](ÀÌ¹ÌÁö URL)
+
+data : Model
+holder : View
+adapter : Presenter
+***
+MainActivity
+```java
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView listView;
@@ -26,17 +28,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listView = (RecyclerView) findViewById(R.id.listView);
-        // 1. ë°ì´í„°
+        // 1. µ¥ÀÌÅÍ
         datas = Loader.getData(this);
-        // 2. ì–´ë‹µí„°
+        // 2. ¾î´äÅÍ
         CustomRecycler adapter = new CustomRecycler(datas, this);
-        // 3. ì—°ê²°
+        // 3. ¿¬°á
         listView.setAdapter(adapter);
-        // 4. ë ˆì´ì•„ì›ƒ ë§¤ë‹ˆì €
+        // 4. ·¹ÀÌ¾Æ¿ô ¸Å´ÏÀú
         listView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
-
+```
+CustomRecycler (¾î´ğÅÍ)
+```java
 class CustomRecycler extends RecyclerView.Adapter<CustomRecycler.Holder>{
 
     ArrayList<Data> datas;
@@ -47,34 +51,45 @@ class CustomRecycler extends RecyclerView.Adapter<CustomRecycler.Holder>{
         this.context = context;
     }
 
-    // List View ì—ì„œ convertView == null ì¼ë•Œ ì²˜ë¦¬
+    // List View ¿¡¼­ convertView == null ÀÏ¶§ Ã³¸®
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-                                                                                // nullê³¼ parentì˜ ì°¨ì´
+                                                                                // null°ú parentÀÇ Â÷ÀÌ
         View view  = LayoutInflater.from((parent.getContext())).inflate(R.layout.item_list,null,false);
         //View view  = LayoutInflater.from((parent.getContext())).inflate(R.layout.item_list,parent,false);
         //Holder holder = new Holder(View);
         return new Holder(view);
     }
 
-    // ê° ë°ì´í„° ì…€ì´ ë‚˜íƒ€ë‚ ë•Œ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜
+    // °¢ µ¥ÀÌÅÍ ¼¿ÀÌ ³ªÅ¸³¯¶§ È£ÃâµÇ´Â ÇÔ¼ö
     @Override
     public void onBindViewHolder(Holder holder, int position) {
-        // 1. ë°ì´í„°ë¥¼ êº¼ë‚´ê³ 
+        // 1. µ¥ÀÌÅÍ¸¦ ²¨³»°í
         Data data = datas.get(position);
-        // 2. ë°ì´í„°ë¥¼ ì„¸íŒ…
+        // 2. µ¥ÀÌÅÍ¸¦ ¼¼ÆÃ
         holder.setImage(data.resId);
         holder.setNo(data.no);
         holder.setTitle(data.title);
     }
 
-    // ë°ì´í„°ì˜ ì „ì²´ ê°œìˆ˜
+    // µ¥ÀÌÅÍÀÇ ÀüÃ¼ °³¼ö
     @Override
     public int getItemCount() {
         return datas.size();
     }
+```
+RecyclerView¿¡¼­´Â Context¸¦ ÅëÇØ inflate ÇÏÁö ¾Ê°í View¸¦ ÅëÇØ¼­ inflate ÀÛ¾÷À» ÇÑ´Ù.
+getItemCount( ) : ¸®½ºÆ®¿¡ Ç¥ÇöµÉ ¾ÆÀÌÅÛ °³¼ö.
+onCreateViewHolder( ) : listView¿¡¼­ holder == null ÀÎ °æ¿ì, Holder¸¦ »ı¼ºÇØÁÖ´ø ºÎºĞ.
+onBindViewHolder( ) : listView¿¡¼­ getView( ) °¡ È£Ãâ µÉ ¶§ °ªÀ» ¼¼ÆÃÇØÁÖ´ø ºÎºĞ.
 
-    class Holder extends RecyclerView.ViewHolder{
+* AdapterÀÇ onCreateViewHolder( ) ¸Ş¼­µå·Î ViewHolderÀÇ ÀÎ½ºÅÏ½º¸¦ »ı¼ºÇØ¼­ ¹İÈ¯ÇÑ´Ù.
+* onBindViewHolder( ) ¸Ş¼­µå·Î ViewHolder¿¡ ¼³Á¤ÇÑ View µ¥ÀÌÅÍ¸¦ ¼³Á¤ÇÑ´Ù.     ViewHolderÀÇ ¸â¹ö º¯¼ö¿¡ View¸¦ ÀúÀåÇØ µÒÀ¸·Î½á, findViewById( )¸¦ ¸Å¹ø ½ÇÇàÇÒ ÇÊ¿ä°¡  ¾ø¾îÁö°í ¼º´ÉÀÌ Çâ»óµÊ.
+
+***
+Holder.class
+```java
+class Holder extends RecyclerView.ViewHolder{
         ImageView image;
         TextView no;
         TextView title;
@@ -99,34 +114,10 @@ class CustomRecycler extends RecyclerView.Adapter<CustomRecycler.Holder>{
         }
     }
 }
+```
+* ÀÏ¹İÀûÀ¸·Î Adapter ³»¿¡¼­ RecyclerView.ViewHolder ¸¦ »ó¼ÓÇÏ´Â Å¬·¡½º¸¦ ¸¸µé¾î »ç¿ë.
+* ViewHolder ´Â View¿¡ ´ëÇÑ ÂüÁ¶¸¦ À¯Áö.
+»ı¼ºÀÚ·Î ºä¸¦ ³Ñ°ÜÁÖ°í super(itemView) ¸¦ Çß´Ù´Â °ÍÀº ViewHolder´Â View¿¡ ´ëÇÑ ÂüÁ¶¸¦ À¯ÁöÇÑ´Ù´Â °ÍÀ» ÀÇ¹ÌÇÑ´Ù.
 
-
-class Loader {
-    public static ArrayList<Data> getData(Context context){
-        ArrayList<Data> result = new ArrayList<>();
-        for(int i=1 ; i<=10 ; i++){
-            Data data = new Data();
-            data.no = i;
-            data.title = "í”¼ì¹´";
-
-            data.setImage("p"+i, context);
-
-            result.add(data);
-        }
-        return result;
-    }
-}
-
-class Data {
-    public int no;
-    public String title;
-    public String image;
-    public int resId;
-
-    public void setImage(String str, Context context){
-        image = str;
-        // ë¬¸ìì—´ë¡œ ë¦¬ì†ŒìŠ¤ ì•„ì´ë”” ê°€ì ¸ì˜¤ê¸°
-        resId = context.getResources().getIdentifier(image, "mipmap", context.getPackageName());
-    }
-}
-
+***
+Loader & Data Å¬·¡½º´Â Àü°ú µ¿ÀÏ.
