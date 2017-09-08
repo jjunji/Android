@@ -2,7 +2,7 @@
 
 일반적으로 리스트 형태로 된 화면 컨트롤, 여러 개의 아이템 중에 선택하는 기능을 넣을 때 자주 사용.
 
-![](https://github.com/jjunji/Android/blob/master/Day12_0524/image/adapter.PNG)
+![](https://github.com/jjunji/Android/blob/master/Day12_0524/image/adapter.PNG)<br>
 위 그림은 리스트 뷰와 같은 선택 위젯이 사용되는 방식이다.
 
 원본 데이터를 위젯에 직접 설정하지 않고, 어댑터라는 클래스를 사용하도록 되어 있다.
