@@ -2,7 +2,7 @@
 
 일반적으로 리스트 형태로 된 화면 컨트롤, 여러 개의 아이템 중에 선택하는 기능을 넣을 때 자주 사용.
 
-![](/path/to/img.jpg)
+![](https://github.com/jjunji/Android/blob/master/Day12_0524/image/adapter.PNG)
 위 그림은 리스트 뷰와 같은 선택 위젯이 사용되는 방식이다.
 
 원본 데이터를 위젯에 직접 설정하지 않고, 어댑터라는 클래스를 사용하도록 되어 있다.
@@ -101,7 +101,7 @@ if(convertView == null) {
             convertView = inflater.inflate(R.layout.item_list, null);
 ```
 
-![](/path/to/img.jpg)
+![](https://github.com/jjunji/Android/blob/master/Day12_0524/image/listview_recycler.jpg)
 
 리스트 뷰의 재활용 흐름도이다.
 한 아이템이 화면 밖으로 나가게되면 해당 뷰는 재활용 가능한 영역으로 들어가게 된다.
@@ -150,6 +150,7 @@ class Holder {
 
 <br>
 intent( ) 를 통해 값을 어딘가로 넘길 때 필요한 키 값을 상수로 정해놓고 사용하면 편리하다.
+
 ```java
     public static final String DATA_KEY = "position";
     public static final String DATA_RES_ID = "resid";
