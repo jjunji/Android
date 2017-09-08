@@ -9,11 +9,12 @@ ListView로 구현한 코드를 RecyclerView로 바꿔보기.
 리사이클러 뷰는 뷰 홀더 패턴을 의무화하고 다양한 추가 기능을 리스트에 구현한 것. 
 ***
 RecyclerView 는 잘 만들어진 mvp 패턴.
-![MVP](이미지 URL)
+![MVP](https://github.com/jjunji/Android/blob/master/Day13_0525/image/MVP.png)
 
-data : Model
-holder : View
+data : Model<br>
+holder : View<br>
 adapter : Presenter
+
 ***
 MainActivity
 ```java
@@ -78,9 +79,9 @@ class CustomRecycler extends RecyclerView.Adapter<CustomRecycler.Holder>{
         return datas.size();
     }
 ```
-RecyclerView에서는 Context를 통해 inflate 하지 않고 View를 통해서 inflate 작업을 한다.
-getItemCount( ) : 리스트에 표현될 아이템 개수.
-onCreateViewHolder( ) : listView에서 holder == null 인 경우, Holder를 생성해주던 부분.
+RecyclerView에서는 Context를 통해 inflate 하지 않고 View를 통해서 inflate 작업을 한다.<br>
+getItemCount( ) : 리스트에 표현될 아이템 개수.<br>
+onCreateViewHolder( ) : listView에서 holder == null 인 경우, Holder를 생성해주던 부분.<br>
 onBindViewHolder( ) : listView에서 getView( ) 가 호출 될 때 값을 세팅해주던 부분.
 
 * Adapter의 onCreateViewHolder( ) 메서드로 ViewHolder의 인스턴스를 생성해서 반환한다.
