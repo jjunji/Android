@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     final int CUSTOM = 2;
     final int GRID = 3;
 
+    // 1. 데이터 정의 -> datas 정의함.
     String datas[] = {"선택하세요", "ListView", "CustomList", "GridView"}; // 스피너에 표시할 항목을 정의.
 
     Spinner spinner;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (position){
                     case LIST :             // this만 쓰면 에러.
                         intent = new Intent(MainActivity.this, ListActivity.class);
+                        startActivity(intent);
                         break;
                     case GRID :
                         intent = new Intent(MainActivity.this, GridActivity.class);
