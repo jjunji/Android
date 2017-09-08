@@ -21,6 +21,10 @@ public class DetailFragment extends Fragment {
         // Required empty public constructor
     }
 
+    // 화면만 뿌려줄 것이라면, setActivity 메소드로 액티비티의 정보를 넘기지 않아도 된다.
+    // 메인 액티비티의 정보를 넘기는 이유는 프래그먼트의 버튼을 눌렀을 때 메인엑티비티에서
+    // 디테일 프래그먼트를 호출하여 교체하기 위해서이다.
+
     public void setActivity(MainActivity activity){
         this.activity = activity;
     }
@@ -37,7 +41,7 @@ public class DetailFragment extends Fragment {
                 activity.backToList();
             }
         });
-        return view;
+        return view;  // 뷰를 반환 하므로써 -> 메인 액티비티의 container에 붙인 ListFragment의 화면이 보여짐.
     }
 
 }
