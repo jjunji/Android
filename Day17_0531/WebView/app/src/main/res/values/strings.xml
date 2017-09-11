@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RuntimePermission</string>
+    <string name="app_name">WebView</string>
     <string name="btn_prev"> &lt; </string>
     <string name="btn_next"> &gt; </string>
     <string name="btn_go"> Go </string>
