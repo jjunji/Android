@@ -47,6 +47,14 @@
 * inflate( )
 <br>
 
+[Intent](https://github.com/jjunji/Android/blob/master/Day13_0525/IntentBasic/README.md)
+
+* 명시적 인텐트
+* 암시적 인텐트
+* 인텐트 역할
+* startActivityForResult( ) 메소드
+<br>
+
 [ListView](https://github.com/jjunji/Android/blob/master/Day12_0524/README.md)
 
 * 선택위젯
