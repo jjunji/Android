@@ -21,7 +21,9 @@ public class MainActivity extends AppCompatActivity {
     final int GRID = 3;
     final int RECYCLER = 4;
 
-    Spinner spinner;
+    // MainActivity 바로 아래 선언하는 것과
+    Spinner spinner; // 선언 후 findViewById를 onCreate 아래 쓰는 것의 차이
+    //Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         // 1. 데이터 정의 -> datas 정의함.
         // 2. 어답터 생성  // 어답터는 곧 데이터?
         // 3. 뷰에 어답터 연결
-        spinner = (Spinner) findViewById(R.id.spinner);
+        //spinner = (Spinner) findViewById(R.id.spinner);
         // 제네릭                                            // this : context에서 자원을 쓰겠다고 했던 것과 같은 이치
         final ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,datas);
         // 어답터가 데이터를 뿌려주고 컨트롤하는 역할.

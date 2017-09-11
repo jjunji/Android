@@ -37,6 +37,9 @@ public class CustomListActivity extends AppCompatActivity {
     }
 }
 
+
+// 역할 : Presenter
+// M(데이터를 가져오고) -> C(가공을 하고) -> V(화면에 뿌려준다)
 class CustomAdapter extends BaseAdapter{ // BaseAdapter는
     ArrayList<Data> datas;
     Context context;
@@ -55,8 +58,10 @@ class CustomAdapter extends BaseAdapter{ // BaseAdapter는
 
     @Override
     public Object getItem(int position) { // 데이터 클래스 하나를 리턴
+        Log.e("Adapter ", "getItem[id] position ="+ position);
         return datas.get(position);
     }
+
 
     @Override
     public long getItemId(int position) {  // 뷰의 아이디 값을 리턴 -> 대부분 인덱스가 그대로 리턴됨
@@ -73,6 +78,9 @@ class CustomAdapter extends BaseAdapter{ // BaseAdapter는
         if(convertView == null) {
             convertView = inflater.inflate(R.layout.item_custom_list, null);
         }
+
+
+
         TextView no = (TextView) view. findViewById(R.id.txtNo);
         TextView title = (TextView) view. findViewById(R.id. txtTitle);
 

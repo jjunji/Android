@@ -27,17 +27,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        spinner = (Spinner) findViewById(R.id.spinner);
         // List뷰에 데이터 연결하기
         // 1. 데이터 정의 -> datas 정의함.
-        // 2. 어답터 생성  // 어답터는 곧 데이터?
-        // 3. 뷰에 어답터 연결
-        spinner = (Spinner) findViewById(R.id.spinner);
-        // 제네릭                                            // this : context에서 자원을 쓰겠다고 했던 것과 같은 이치
+        // 2. 어답터 생성 -> 뷰에 넣을 데이터를 컨트롤, 데이터를 뿌려줌.
         final ArrayAdapter<String> adapter= new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,datas);
-        // 어답터가 데이터를 뿌려주고 컨트롤하는 역할.
+                         // 제네릭                               // this : context에서 자원을 쓰겠다고 했던 것과 같은 이치
+        // 3. 뷰에 어답터 연결
         spinner.setAdapter(adapter);
-        // 어답터를 쓰는 이유 : 데이터가 변경되도
-        // 어답터 : 완벽한 mvp구조
+        // 어답터를 쓰는 이유 : 데이터의 변경 사항이 있어도 아답터가 처리를 해준다. (레이아웃 등) , 완벽한 mvp구조
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -60,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case CUSTOM:
                         intent = new Intent(MainActivity.this, CustomListActivity.class);
-//                        startActivity(intent);
+                        startActivity(intent);
                         break;
                     default: // 선택하세요
                 }
