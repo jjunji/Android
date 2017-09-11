@@ -20,6 +20,27 @@
 
 MIME 타입에 따라 안드로이드 시스템에서 적절한 다른 앱의 액티비티를 찾은 후 띄우는 방식.
 
+***
+명시적 Intent 예시
+```java
+Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+```
+암시적 Intent 예시
+```java
+btnCall.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        String phoneNumber = txtCall.getText().toString();
+        Uri uri = Uri.parse("tel:" + phoneNumber);
+        // tel:  이 글씨는 바뀌면 안됨.
+        Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+        // Uri : 자원을 가리키는 주소체계
+        // ACTION_DIAL  묵시적으로 정해진 값
+        startActivity(intent);
+    }
+});
+```
+
 **2.2 인텐트가 가지고 있는 속성**
 
  1) 범주(Category) : 액션이 실행되는데 필요한 추가적인 정보를 제공
