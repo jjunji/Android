@@ -31,7 +31,7 @@ MIME 타입에 따라 안드로이드 시스템에서 적절한 다른 앱의 액티비티를 찾은 후 띄우�
 **3. startActivityForResult( ) 메소드**
 
 ```java
-							(1)           (2)
+						(1)           (2)
 startActivityForResult(Intent intent, int requestCode)
 ```
 (1) : 정보를 담고 있는 Intent 객체                  
