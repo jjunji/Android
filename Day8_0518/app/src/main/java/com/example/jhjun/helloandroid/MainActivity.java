@@ -13,7 +13,7 @@ import android.widget.TextView;
  * 3. setOnclickListener 함수에 익명 객체로 전달
  */
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btn;
     TextView tv;
@@ -41,11 +41,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
+
     // 1번 형태
     @Override
     public void onClick(View v) {
         tv.setText("안녕 안드로이드!!!");
     }
+
     // 2번 형태
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
@@ -53,4 +55,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             tv.setText("안녕 안드로이드!!!");
         }
     };
+
 }
