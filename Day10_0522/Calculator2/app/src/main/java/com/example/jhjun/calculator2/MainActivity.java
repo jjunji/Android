@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             splited2.add(splited[i]);
         }
 
-        //while (splited2.size() > 0) {
             for (int i = 0; i < splited2.size(); i++) {
                 String temp = "";
                 int temp_int = 0;
