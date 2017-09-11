@@ -1,5 +1,52 @@
 # Android Study
 
+[Android Project](https://github.com/jjunji/Android/blob/master/Day10_0522/Gradle/README.md)
+
+* Project 구성
+* Build
+* gradle
+* sdk
+* API
+* Library & Framework
+<br>
+
+[Basic Widget](https://github.com/jjunji/Android/blob/master/Day9_0519/BasicWidget/README.md)
+
+* ToggleButton
+* RadioGroup
+* SeekBar
+<br>
+
+[View & ViewGroup]()
+
+* 뷰
+<br>
+
+[Click Listener](https://github.com/jjunji/Android/blob/master/Day8_0518/README.md)
+
+* 클릭 리스너 구현 3가지 방법
+* 익명객체 사용하기
+<br>
+
+[공학용 계산기 만들기](https://github.com/jjunji/Android/blob/master/Day10_0522/Calculator2/README.md)
+
+* ArrayList
+* split()
+* 연산자 우선순위
+<br>
+
+[Spinner](https://github.com/jjunji/Android/blob/master/Day11_0523/BasicAdapter/README.md)
+
+* Adapter
+* Spinner widget
+<br>
+
+[Layout Inflator](https://github.com/jjunji/Android/blob/master/LayoutInflator/LayoutInflator/README.md)
+
+* Inflation
+* inflate( )
+<br>
+
 [ListView](https://github.com/jjunji/Android/blob/master/Day12_0524/README.md)
 
 * 선택위젯
