@@ -55,6 +55,12 @@
 * startActivityForResult( ) 메소드
 <br>
 
+[Activity Control](https://github.com/jjunji/Android/blob/master/Day17_0531/ActivityControl/README.md)
+
+* startActivityForResult - Activity 사이에서 값 주고받기
+* Bundle
+<br>
+
 [ListView](https://github.com/jjunji/Android/blob/master/Day12_0524/README.md)
 
 * 선택위젯
@@ -95,4 +101,13 @@
 [NavigationBar 사용하기](https://github.com/jjunji/Android/blob/master/Navibar/README.md)
 
 * Navigation Drawer Activity
+<br>
+
+[Animation](https://github.com/jjunji/Android/blob/master/Animation/Animation/README.md)
+
+* Rotate
+* Scale
+* Translate
+* Alpha
+* Property Animation
 <br>
