@@ -34,6 +34,5 @@ public class MenuActivity extends AppCompatActivity {
                 checkBox.setText("로딩되었어요.");
             }
         });
-
     }
 }
