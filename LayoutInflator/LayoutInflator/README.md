@@ -30,11 +30,11 @@ public class MainActivity extends AppCompatActivity {
 
 화면의 기능을 담당하는 자바 소스 파일을 하나 만들면 그 안에는 AppCompatActivity를 상속하는 하나의 클래스 자동으로 만들어짐.
 
-※ AppCompatActivity : 화면에 필요한 기능들이 들어 있음.
-
 2)  상속한 AppCompatActivity의 setContentView( ) 메소드를 호출하면서 XML레이아웃 파일 이름을 파라미터로 전달하면 XML 레이아웃과 자바 소스코      드가 서로 연결된다. 
 
-※ setContentView( ) 메소드의 역할 2가지
+※ AppCompatActivity : 화면에 필요한 기능들이 들어 있음.
+
+  ※ setContentView( ) 메소드의 역할 2가지
 
    1) 화면에 나타낼 뷰를 지정하는 역할.
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
  안드로이드에서는 이를 위해 LayoutInflater 클래스 제공.
 
-![]()
+![](https://github.com/jjunji/Android/blob/master/LayoutInflator/LayoutInflator/image/inflation_process.PNG)
 
 ```java
 public class MenuActivity extends AppCompatActivity {
