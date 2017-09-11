@@ -6,7 +6,8 @@
 ![](https://github.com/jjunji/Android/blob/master/Day10_0522/Gradle/image/folder.PNG)
 
 ***
-**2. Build **
+
+**2. Build**
 
 * 컴파일을 포함하는 개념으로 컴파일된 자원들을 패키징 하여 배포 가능한 파일로 만든다.
 ![](https://github.com/jjunji/Android/blob/master/Day10_0522/Gradle/image/build.PNG)
@@ -18,31 +19,33 @@
 안드로이드 스튜디오에서 앱 작성 -> 자바에서 빌드(컴파일) -> 바이트코드로 변환 및 패키징 -> 안드로이드 커널(LINUX)
 
 ***
-**2.1 Build Tools **
+
+**2.1 Build Tools**
 
 * 자바에서는 아래 3가지 빌드 도구가 가장 많이 사용된다.
 
-~[](https://github.com/jjunji/Android/blob/master/Day10_0522/Gradle/image/buildTools.PNG)
+![](https://github.com/jjunji/Android/blob/master/Day10_0522/Gradle/image/buildTools.PNG)
 
 Maven
 
 빌드 도구로 시작하였으나 현재는 의존성 관리위주로 사용되고 있으며 국내 java진영에서는 가장 범용적으로 사용되고 있다. (기본 규칙(포맷)을 벗어나면 처리가 어렵다.) 주로 라이브러리 관리 툴로 사용.
 
 ***
-**2.2 build.gradle 파일 설정 정보 **
+
+**2.2 build.gradle 파일 설정 정보**
 
 ![](https://github.com/jjunji/Android/blob/master/Day10_0522/Gradle/image/buildTools2.PNG)
 
 ***
 
-**3. SDK  **
+**3. SDK**
 SDK(Software Development Kit) : 소프트웨어 라이브러리 모음.
 
 일반적으로 소프트웨어 기술자가 특정한 소프트웨어, 소프트웨어 프레임워크, 하드웨어 플랫폼, 컴퓨터 시스템, 게임기, 운영체제 등을 위한 응용프로그램 등을 만들 수 있게 해주는 개발 도구의 집합을 말한다.
 
 응용 프로그램을 만들기 위해서는 특정한 SDK를 다운 받아야하는데, 안드로이드 개발을 위해서는 Java를 포함한 SDK가 필요하다.
 
-**4. API **
+**4. API**
 
 API(Application Programming Interface) : 응용 프로그램 프로그래밍 인터페이스
 
@@ -51,8 +54,7 @@ API(Application Programming Interface) : 응용 프로그램 프로그래밍 인터페이스
 주로 파일 제어, 창 제어, 화상 처리, 문자 제어 등을 위한 인터페이스를 제공.
 
  
-
-**5. 라이브러리 & 프레임워크 **
+**5. 라이브러리 & 프레임워크**
 
 라이브러리는 API에 맞게 그저 호출받고 반환만 해줄뿐 프로그램 전체의 흐름을 주도하지는 않는다.
 
