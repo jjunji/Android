@@ -33,10 +33,10 @@ intent = new Intent(this, SubActivity.class);
         }
     }
 ```
-(1) case R.id.btnStart
+(1) case R.id.btnStart :
 
-startActivity(intent); 
- -> 현재 intent에는 SubActivity.class를 호출하라는 정보를 가지고 있다.
+startActivity(intent); <br>
+ -> 현재 intent에는 SubActivity.class를 호출하라는 정보를 가지고 있다.<br>
 -> 버튼 클릭시 해당 클래스를 호출.
 
  (2) case R.id.btnResult :
@@ -48,7 +48,7 @@ break;
 
 2) intent객체에 데이터를 넣으면 Intent가 가지고 있는 Bundle의 인스턴스인 bundle에 아래와 같은 형태로 저장된다.
    "key" 값을 설정하는 이유는 데이터의 묶음인 bundle에서 내가 원하는 특정 값을 key를 통해 찾고, 꺼내서 사용하기 위함이다.
-![]()
+![](https://github.com/jjunji/Android/blob/master/Day17_0531/image/bundle.PNG)
 
 3) startActivityForResult(intent, BTN_START);
 
@@ -113,7 +113,7 @@ SubActivity
         // String value = intent.getStringExtra("key");
 ```
 
-![]()
+![](https://github.com/jjunji/Android/blob/master/Day17_0531/image/bundle2.PNG)
 
 (1) final Intent intent = getIntent(); 
 	현재 액티비티의 bundle
