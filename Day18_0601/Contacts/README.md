@@ -41,8 +41,76 @@ onRequestPermissionResult(int, String[], int[])
 * 함수 내에서 배열로 전달되므로 필요한 퍼미션이 잘 받아졌는지 확인하여 이후 처리가 가능.
  
 ***
- 
-#ContentProvider & ContentResolver 
+CheckPermissionActivity
+```java
+ @TargetApi(Build.VERSION_CODES.M)
+    private void checkPermission(){
+        // 1. 권한 체크 - 특정 권한이 있는지 시스템에 물어본다.                         // 상수로 정의되어있음.
+        if(checkSelfPermission(Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED){
+            Intent intent = new Intent(this, ContactActivity.class);
+            startActivity(intent);
+        }else{
+            // 2. 권한이 없으면 사용자에게 권한을 달라고 요청
+            String permissions[] = {Manifest.permission.READ_CONTACTS};
+            requestPermissions(permissions,100); // -> 권한을 요구하는 팝업이 사용자 화면에 나타남.
+        }
+    }
+```
+requestPermissions -> 배열 형태로 전달(여러개인 경우도 있기 때문)
+
+100 : 리퀘스트 코드를 체크해서 어떤 요청 후에 결과 처리인지 판단.
+
+***
+requestPermissions 호출 후에 호출되는 함수
+
+```java
+    // 3. 사용자가 권한체크 팝업에서 권한을 승인 또는 거절하면 아래 메서드가 호출된다.
+    @Override                                   // 100
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQ_PERMISSION) {
+            // 3.1 사용자가 승인을 했음
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                run();
+                // 3.2 사용자가 거절 했음
+            } else {
+                cancel();
+            }
+        }
+    }
+```
+요청 결과에 따라 수행할 각각의 메소드 정의.
+```java
+    public void run(){
+        Intent intent = new Intent(this, ContactActivity.class);
+        startActivity(intent);
+    }
+
+    public void cancel(){
+        Toast.makeText(this, "권한요청을 승인하셔야 앱을 사용할 수 있습니다.",Toast.LENGTH_SHORT).show();
+        finish();
+    }
+```
+버전 호환성 체크
+```java
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_check_permission);
+
+        // 0. api level이 23 이상일 경우만 실행
+        // Build.VERSION.SDK_INIT = 설치 안드로이드폰의 api level 가져오기
+        // build
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            checkPermission();
+        }
+        // 아니면 그냥 run
+        run();
+    }
+```
+
+***
+# ContentProvider & ContentResolver 
 
 ![](https://github.com/jjunji/Android/blob/master/Day18_0601/image/ContentProvider_Resolver.PNG)
 
