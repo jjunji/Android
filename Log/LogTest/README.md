@@ -176,3 +176,23 @@ for(int i=0; i<Thread.currentThread().getStackTrace().length; i++){
 ```
 를 통해 전체를 출력해보면 아래와 같은 결과가 나온다는 것을 확인할 수 있다.
 ![](https://github.com/jjunji/Android/blob/master/Log/LogTest/image/log2.PNG)
+
+***
+**JAVA Stack Trace 방법**
+
+Thread를 이용하여 현재 Thread를 얻어오고, 얻어온 Thread로부터 Stack Trace를 가져온다.
+Thread th = Thread.currentThread();
+StackTraceElement 배열을 이용.
+StackTraceElement[] lists = th.getStackTrace();
+StackTraceElement의 메서드를 이용하여 원하는 내용을 출력하면 된다.
+
+***
+
+**LOG Level**
+
+* Verbose - 모든 로그 메시지를 표시합니다(기본 설정).
+* Debug - 개발 중에만 유용한 디버그 로그 메시지뿐 아니라 더 낮은 레벨의 메시지도 이 목록에 표시합니다.
+* Info - 일반적인 사용에 대해 예상할 수 있는 로그 메시지뿐 아니라 더 낮은 레벨의 메시지도 이 목록에 표시합니다.
+* Warn - 아직 오류는 아니지만 발생 가능한 문제뿐 아니라 더 낮은 레벨의 메시지도 이 목록에 표시합니다.
+* Error - 오류를 일으킨 문제뿐 아니라 더 낮은 레벨의 메시지도 이 목록에 표시합니다.
+* Assert - 개발자가 결코 발생해서는 안 된다고 생각하는 문제를 표시합니다.
