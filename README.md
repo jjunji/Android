@@ -47,6 +47,16 @@
 * inflate( )
 <br>
 
+[LOG](https://github.com/jjunji/Android/blob/master/Log/LogTest/README.md)
+
+* Debug
+* BuildConfig
+* 로그 찍는 방법
+* 로그 활용법 (Logger class)
+* JAVA Stack Trace
+* LOG Level
+<br>
+
 [Intent](https://github.com/jjunji/Android/blob/master/Day13_0525/IntentBasic/README.md)
 
 * 명시적 인텐트
