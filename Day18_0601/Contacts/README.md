@@ -39,9 +39,9 @@ onRequestPermissionResult(int, String[], int[])
 * 3)에서 사용자에게 권한획득에 대해 물어본 다음에 그 결과에 대해 사용자가 승인 혹은 거절에 대해서 응답을 하면 결과처리 메소드(onRequestPermissionResult)가 실행이 된다.
 * 권한 획득에 대항 성공/실패에 대한 정보를 담은 callback.
 * 함수 내에서 배열로 전달되므로 필요한 퍼미션이 잘 받아졌는지 확인하여 이후 처리가 가능.
-
+ 
 ***
-
+ 
 #ContentProvider & ContentResolver 
 
 ![](https://github.com/jjunji/Android/blob/master/Day18_0601/image/ContentProvider_Resolver.PNG)
@@ -131,8 +131,8 @@ Cursor cursor = resolver.query(phoneUri, projections, null, null, null);
 ```
 ![](https://github.com/jjunji/Android/blob/master/Day18_0601/image/projec.PNG)
 
-1번째 인자 : 주소록의 주소 값
-2번째 인자 : 데이터를 가져올 형태
+1번째 인자 : 주소록의 주소 값<br>
+2번째 인자 : 데이터를 가져올 형태<br>
 3,4,5 번째 : 조건식 ( 정렬 등)
 
 ***
