@@ -1,5 +1,6 @@
 package com.jjunji.android.logtest.Util;
 
+import android.os.StrictMode;
 import android.util.Log;
 
 import com.jjunji.android.logtest.BuildConfig;
@@ -32,7 +33,15 @@ public class Logger {
     private static void Logger(int priority, String msg) {
         if (BuildConfig.DEBUG) {
             StringBuilder msgBuilder = new StringBuilder();
-            msgBuilder.append("[").append(Thread.currentThread().getStackTrace()[4].getMethodName())
+            StringBuilder msgBuilder2 = new StringBuilder();
+
+            for(int i=0; i<Thread.currentThread().getStackTrace().length; i++){
+                msgBuilder2.append(Thread.currentThread().getStackTrace()[i].getMethodName() + " / ");
+            }
+
+            Log.println(priority, "test" , msgBuilder2.toString());
+
+            msgBuilder.append("[").append(Thread.currentThread().getStackTrace()[3].getMethodName())
                     .append("()").append("]").append(" :: ").append(msg)
                     .append(" (").append(Thread.currentThread().getStackTrace()[4].getFileName()).append(":")
                     .append(Thread.currentThread().getStackTrace()[4].getLineNumber()).append(")");
