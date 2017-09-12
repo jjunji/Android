@@ -4,43 +4,44 @@
 
 **1. Runtime Permission**
 
-¾Èµå·ÎÀÌµå´Â ¸¶½Ã¸á·Î¿ì(6.0) Api Level 23 ÀÌ»ó ºÎÅÍ´Â »ç¿ëÀÚ°¡ Á¢±Ù ±ÇÇÑÀÌ ÇÊ¿äÇÑ ±â´ÉÀ» ¼öÇàÇÒ ¶§, »ç¿ëÀÚ·Î ÇÏ¿©±Ý ÇØ´ç ±ÇÇÑÀ» ¾Û¿¡ Çã¶ô ÇÒ °ÍÀÎÁö ¹¯°í,
-°³¹ßÀÚ°¡ ¾Æ´Ñ »ç¿ëÀÚ°¡ ÀÚ½ÅÀÇ µð¹ÙÀÌ½ºÀÇ Á¢±Ù ±ÇÇÑÀ» °áÁ¤ÇÏ´Â ÇüÅÂ·Î ±ÇÇÑ ¼³Á¤ ±¸Á¶°¡ ¹Ù²ñ.  ->  ¸Þ´ÏÆä½ºÆ®¿¡¼­ ¾²´Â ¼³Ä¡±ÇÇÑ°ú ´Ù¸£°Ô ¼Ò½ºÄÚµå·Î ÀÛ¼ºÇØ¾ß ÇÑ´Ù.
+ì•ˆë“œë¡œì´ë“œëŠ” ë§ˆì‹œë©œë¡œìš°(6.0) Api Level 23 ì´ìƒ ë¶€í„°ëŠ” ì‚¬ìš©ìžê°€ ì ‘ê·¼ ê¶Œí•œì´ í•„ìš”í•œ ê¸°ëŠ¥ì„ ìˆ˜í–‰í•  ë•Œ, ì‚¬ìš©ìžë¡œ í•˜ì—¬ê¸ˆ í•´ë‹¹ ê¶Œí•œì„ ì•±ì— í—ˆë½ í•  ê²ƒì¸ì§€ ë¬»ê³ ,
+ê°œë°œìžê°€ ì•„ë‹Œ ì‚¬ìš©ìžê°€ ìžì‹ ì˜ ë””ë°”ì´ìŠ¤ì˜ ì ‘ê·¼ ê¶Œí•œì„ ê²°ì •í•˜ëŠ” í˜•íƒœë¡œ ê¶Œí•œ ì„¤ì • êµ¬ì¡°ê°€ ë°”ë€œ.  ->  ë©”ë‹ˆíŽ˜ìŠ¤íŠ¸ì—ì„œ ì“°ëŠ” ì„¤ì¹˜ê¶Œí•œê³¼ ë‹¤ë¥´ê²Œ ì†ŒìŠ¤ì½”ë“œë¡œ ìž‘ì„±í•´ì•¼ í•œë‹¤.
 
-**2. ±ÇÇÑ È¹µæ Ã³¸®**
+**2. ê¶Œí•œ íšë“ ì²˜ë¦¬**
 
-1) ±ÇÇÑ È¹µæÇÏ±â Àü ±ÇÇÑ À¯È¿¼º Ã¼Å©
+1) ê¶Œí•œ íšë“í•˜ê¸° ì „ ê¶Œí•œ ìœ íš¨ì„± ì²´í¬
 ```
 checkSelfPermission(String) != packageManager.PERMISSION_GRANTED
 ```
-ÇöÀç ¾ÛÀÌ Æ¯Á¤ ±ÇÇÑÀ» °®°í ÀÖ´ÂÁö È®ÀÎ °¡´É
+í˜„ìž¬ ì•±ì´ íŠ¹ì • ê¶Œí•œì„ ê°–ê³  ìžˆëŠ”ì§€ í™•ì¸ ê°€ëŠ¥
 
-2) ¼³¸íÀÌ ÇÊ¿äÇÒ °æ¿ì Ã³¸®
+2) ì„¤ëª…ì´ í•„ìš”í•  ê²½ìš° ì²˜ë¦¬
 ```
 shouldShowRequestPermissionRationale(String)
 ```
-* ¾ÈÇØÁàµµ µÇ´Âµ¥ »ç¿ëÀÚ°¡ ÇÊ¿äÇÑ ±ÇÇÑ¿¡ ´ëÇØ ¼³¸íÀ» ÇØÁÖ´Â °Í.
-* ±ÇÇÑ È¹µæÀÌ ÇÊ¿äÇÑ ÀÌÀ¯¸¦ ¼³¸íÇØ¾ß ÇÑ´Ù¸é ´ÙÀ½ ¿É¼ÇÀ» Ãß°¡ÇÏ¿© º°µµ Ã³¸®°¡ °¡´É.
-* »ç¿ëÀÚ°¡ ÀÌÀü¿¡ ±ÇÇÑ ¿äÃ»À» °ÅºÎÇÑ °æ¿ì¿¡ true ¹ÝÈ¯.
-* ÀÌ °æ¿ì, ±ÇÇÑ ¿äÃ»À» À§ÇÑ ´ëÈ­Ã¢¿¡´Â '´Ù½Ã ¹¯Áö ¾Ê±â' Ã¼Å©¹Ú½º¿Í ÇÔ²² Ç¥½ÃµÊ.
-* »ç¿ëÀÚ°¡ ÀÌ¸¦ ¼±ÅÃÇÏ¸é ÀÌÈÄ¿¡ ¾ÛÀÌ requestPermissions ¸Þ¼­µå¸¦ È£ÃâÇØµµ ±ÇÇÑ ¿äÃ» ´ëÈ­Ã¢ÀÌ Ç¥½ÃµÇÁö ¾Ê°í, ¹Ù·Î »ç¿ëÀÚ°¡ ÇØ´ç ±ÇÇÑÀ» °ÅºÎÇÒ ¶§¿Í µ¿ÀÏÇÏ°Ô ÄÝ¹é ÇÔ¼ö°¡ È£ÃâµÈ´Ù.
+* ì•ˆí•´ì¤˜ë„ ë˜ëŠ”ë° ì‚¬ìš©ìžê°€ í•„ìš”í•œ ê¶Œí•œì— ëŒ€í•´ ì„¤ëª…ì„ í•´ì£¼ëŠ” ê²ƒ.
+* ê¶Œí•œ íšë“ì´ í•„ìš”í•œ ì´ìœ ë¥¼ ì„¤ëª…í•´ì•¼ í•œë‹¤ë©´ ë‹¤ìŒ ì˜µì…˜ì„ ì¶”ê°€í•˜ì—¬ ë³„ë„ ì²˜ë¦¬ê°€ ê°€ëŠ¥.
+* ì‚¬ìš©ìžê°€ ì´ì „ì— ê¶Œí•œ ìš”ì²­ì„ ê±°ë¶€í•œ ê²½ìš°ì— true ë°˜í™˜.
+* ì´ ê²½ìš°, ê¶Œí•œ ìš”ì²­ì„ ìœ„í•œ ëŒ€í™”ì°½ì—ëŠ” 'ë‹¤ì‹œ ë¬»ì§€ ì•Šê¸°' ì²´í¬ë°•ìŠ¤ì™€ í•¨ê»˜ í‘œì‹œë¨.
+* ì‚¬ìš©ìžê°€ ì´ë¥¼ ì„ íƒí•˜ë©´ ì´í›„ì— ì•±ì´ requestPermissions ë©”ì„œë“œë¥¼ í˜¸ì¶œí•´ë„ ê¶Œí•œ ìš”ì²­ ëŒ€í™”ì°½ì´ í‘œì‹œë˜ì§€ ì•Šê³ , ë°”ë¡œ ì‚¬ìš©ìžê°€ í•´ë‹¹ ê¶Œí•œì„ ê±°ë¶€í•  ë•Œì™€ ë™ì¼í•˜ê²Œ ì½œë°± í•¨ìˆ˜ê°€ í˜¸ì¶œëœë‹¤.
 
-3) ±ÇÇÑ È¹µæÀ» À§ÇÑ API
+3) ê¶Œí•œ íšë“ì„ ìœ„í•œ API
 ```
 Activity.requestPermissions(String[], int)
 ```
-À§ÀÇ ±ÇÇÑ Áß Group°ú permission 2°¡Áö¸¦ ¼±ÅÃÀûÀ¸·Î ´øÁú ¼ö ÀÖ´Ù.
-ÇÑ¹ø¿¡ 1°³°¡ ¾Æ´Ñ String[] ¹è¿­·Î ³Ñ°Ü ÇÑ ¹ø¿¡ ÇÊ¿äÇÑ permissionÀ» ÇÑ ¹ø¿¡ È¹µæÇÒ ¼ö ÀÖ´Ù.
+ìœ„ì˜ ê¶Œí•œ ì¤‘ Groupê³¼ permission 2ê°€ì§€ë¥¼ ì„ íƒì ìœ¼ë¡œ ë˜ì§ˆ ìˆ˜ ìžˆë‹¤.
+í•œë²ˆì— 1ê°œê°€ ì•„ë‹Œ String[] ë°°ì—´ë¡œ ë„˜ê²¨ í•œ ë²ˆì— í•„ìš”í•œ permissionì„ í•œ ë²ˆì— íšë“í•  ìˆ˜ ìžˆë‹¤.
 
-4) °á°úÃ³¸®
+4) ê²°ê³¼ì²˜ë¦¬
 ```
 onRequestPermissionResult(int, String[], int[])
 ```
-* 3)¿¡¼­ »ç¿ëÀÚ¿¡°Ô ±ÇÇÑÈ¹µæ¿¡ ´ëÇØ ¹°¾îº» ´ÙÀ½¿¡ ±× °á°ú¿¡ ´ëÇØ »ç¿ëÀÚ°¡ ½ÂÀÎ È¤Àº °ÅÀý¿¡ ´ëÇØ¼­ ÀÀ´äÀ» ÇÏ¸é °á°úÃ³¸® ¸Þ¼Òµå(onRequestPermissionResult)°¡ ½ÇÇàÀÌ µÈ´Ù.
-* ±ÇÇÑ È¹µæ¿¡ ´ëÇ× ¼º°ø/½ÇÆÐ¿¡ ´ëÇÑ Á¤º¸¸¦ ´ãÀº callback.
-* ÇÔ¼ö ³»¿¡¼­ ¹è¿­·Î Àü´ÞµÇ¹Ç·Î ÇÊ¿äÇÑ ÆÛ¹Ì¼ÇÀÌ Àß ¹Þ¾ÆÁ³´ÂÁö È®ÀÎÇÏ¿© ÀÌÈÄ Ã³¸®°¡ °¡´É.
+* 3)ì—ì„œ ì‚¬ìš©ìžì—ê²Œ ê¶Œí•œíšë“ì— ëŒ€í•´ ë¬¼ì–´ë³¸ ë‹¤ìŒì— ê·¸ ê²°ê³¼ì— ëŒ€í•´ ì‚¬ìš©ìžê°€ ìŠ¹ì¸ í˜¹ì€ ê±°ì ˆì— ëŒ€í•´ì„œ ì‘ë‹µì„ í•˜ë©´ ê²°ê³¼ì²˜ë¦¬ ë©”ì†Œë“œ(onRequestPermissionResult)ê°€ ì‹¤í–‰ì´ ëœë‹¤.
+* ê¶Œí•œ íšë“ì— ëŒ€í•­ ì„±ê³µ/ì‹¤íŒ¨ì— ëŒ€í•œ ì •ë³´ë¥¼ ë‹´ì€ callback.
+* í•¨ìˆ˜ ë‚´ì—ì„œ ë°°ì—´ë¡œ ì „ë‹¬ë˜ë¯€ë¡œ í•„ìš”í•œ í¼ë¯¸ì…˜ì´ ìž˜ ë°›ì•„ì¡ŒëŠ”ì§€ í™•ì¸í•˜ì—¬ ì´í›„ ì²˜ë¦¬ê°€ ê°€ëŠ¥.
  
 ***
+<<<<<<< HEAD
 CheckPermissionActivity
 ```java
  @TargetApi(Build.VERSION_CODES.M)
@@ -115,58 +116,61 @@ requestPermissions È£Ãâ ÈÄ¿¡ È£ÃâµÇ´Â ÇÔ¼ö
 ±× ¾×Æ¼ºñÆ¼¿¡¼­ ÃÖÁ¾ °á°úÃ³¸®¸¦ ÇØÁÖ´Â ÇüÅÂ.
 
 ***
+=======
+ 
+>>>>>>> 3b66b0fb311b4c2678c1ee628a714756ef96ab47
 # ContentProvider & ContentResolver 
 
 ![](https://github.com/jjunji/Android/blob/master/Day18_0601/image/ContentProvider_Resolver.PNG)
 
-¾Èµå·ÎÀÌµå´Â ´Ù¸¥ ¾îÇÃ¸®ÄÉÀÌ¼Ç¿¡¼­ Æ¯Á¤ ¾îÇÃ¸®ÄÉÀÌ¼ÇÀÇ µ¥ÀÌÅÍº£ÀÌ½º¿¡ Á÷Á¢ Á¢±ÙÇÏ´Â °ÍÀº ºÒ°¡´É.
-±×·¡¼­ ÄÁÅÙÆ® ÇÁ·Î¹ÙÀÌ´õ(Content Provider)¸¦ »ç¿ëÇÑ´Ù.
+ì•ˆë“œë¡œì´ë“œëŠ” ë‹¤ë¥¸ ì–´í”Œë¦¬ì¼€ì´ì…˜ì—ì„œ íŠ¹ì • ì–´í”Œë¦¬ì¼€ì´ì…˜ì˜ ë°ì´í„°ë² ì´ìŠ¤ì— ì§ì ‘ ì ‘ê·¼í•˜ëŠ” ê²ƒì€ ë¶ˆê°€ëŠ¥.
+ê·¸ëž˜ì„œ ì»¨í…íŠ¸ í”„ë¡œë°”ì´ë”(Content Provider)ë¥¼ ì‚¬ìš©í•œë‹¤.
 
 **ContentProvider**
 
-¾îÇÃ¸®ÄÉÀÌ¼Ç ³»ÀÇ µ¥ÀÌÅÍº£ÀÌ½º¸¦ ´Ù¸¥ ¾îÇÃ¸®ÄÉÀÌ¼ÇÀÌ »ç¿ëÇÒ ¼ö ÀÖ´Â Åë·Î¸¦ Á¦°øÇÑ´Ù.
+ì–´í”Œë¦¬ì¼€ì´ì…˜ ë‚´ì˜ ë°ì´í„°ë² ì´ìŠ¤ë¥¼ ë‹¤ë¥¸ ì–´í”Œë¦¬ì¼€ì´ì…˜ì´ ì‚¬ìš©í•  ìˆ˜ ìžˆëŠ” í†µë¡œë¥¼ ì œê³µí•œë‹¤.
 
 **ContentResolver**
 
-ÄÁÅÙÆ® ÇÁ·Î¹ÙÀÌ´õ¸¦ »ç¿ëÇÏ¿© ¾Èµå·ÎÀÌ ½Ã½ºÅÛÀÇ °¢Á¾ ¼³Á¤°ªÀÌ³ª ¹Ìµð¾î µî¿¡ Á¢±Ù °¡´ÉÇØÁö´Âµ¥, ÀÌ ÄÁÅÙÆ® ÇÁ·Î¹ÙÀÌ´õ¿¡ Á¢±ÙÇÏ±â À§ÇØ¼­ »ç¿ëÇÏ´Â °ÍÀÌ ÄÁÅÙÆ® ¸®Á¹¹öÀÌ´Ù.
+ì»¨í…íŠ¸ í”„ë¡œë°”ì´ë”ë¥¼ ì‚¬ìš©í•˜ì—¬ ì•ˆë“œë¡œì´ ì‹œìŠ¤í…œì˜ ê°ì¢… ì„¤ì •ê°’ì´ë‚˜ ë¯¸ë””ì–´ ë“±ì— ì ‘ê·¼ ê°€ëŠ¥í•´ì§€ëŠ”ë°, ì´ ì»¨í…íŠ¸ í”„ë¡œë°”ì´ë”ì— ì ‘ê·¼í•˜ê¸° ìœ„í•´ì„œ ì‚¬ìš©í•˜ëŠ” ê²ƒì´ ì»¨í…íŠ¸ ë¦¬ì¡¸ë²„ì´ë‹¤.
 
-ÄÁÅÙÆ® ¸®Á¹¹ö´Â ÄÁÅÙÆ® ÇÁ·Î¹ÙÀÌ´õÀÇ ÁÖ¼Ò¸¦ ÅëÇØ ÇØ´ç ÄÁÅÙÆ® ÇÁ·Î¹ÙÀÌ´õ¿¡ Á¢±ÙÇÏ¿© ÄÁÅÙÆ® ÇÁ·Î¹ÙÀÌ´õÀÇ µ¥ÀÌÅÍ¿¡ Á¢±ÙÇÒ ¼ö ÀÖµµ·Ï ÇØÁÖ´Â ¿ªÇÒ. -> ÀÏÁ¾ÀÇ ¿¬°á ´Ù¸®
+ì»¨í…íŠ¸ ë¦¬ì¡¸ë²„ëŠ” ì»¨í…íŠ¸ í”„ë¡œë°”ì´ë”ì˜ ì£¼ì†Œë¥¼ í†µí•´ í•´ë‹¹ ì»¨í…íŠ¸ í”„ë¡œë°”ì´ë”ì— ì ‘ê·¼í•˜ì—¬ ì»¨í…íŠ¸ í”„ë¡œë°”ì´ë”ì˜ ë°ì´í„°ì— ì ‘ê·¼í•  ìˆ˜ ìžˆë„ë¡ í•´ì£¼ëŠ” ì—­í• . -> ì¼ì¢…ì˜ ì—°ê²° ë‹¤ë¦¬
 
-URI ÁÖ¼Ò¸¸ ¾È´Ù¸é ¾î¶² Á¤º¸¶óµµ Á¢±ÙÀÌ °¡´ÉÇÏ´Ù.
-¿©±â¼­ URI ´Â ¾Èµå·ÎÀÌµå ½Ã½ºÅÛ ÀÚ¿øÀÇ ÁÖ¼ÒÃ¼°è¸¦ ¶æÇÔ.
+URI ì£¼ì†Œë§Œ ì•ˆë‹¤ë©´ ì–´ë–¤ ì •ë³´ë¼ë„ ì ‘ê·¼ì´ ê°€ëŠ¥í•˜ë‹¤.
+ì—¬ê¸°ì„œ URI ëŠ” ì•ˆë“œë¡œì´ë“œ ì‹œìŠ¤í…œ ìžì›ì˜ ì£¼ì†Œì²´ê³„ë¥¼ ëœ»í•¨.
 
 ```java
 public List<Data> getContacts(){
-        // µ¥ÀÌÅÍº£ÀÌ½º È¤Àº content resolver¸¦ ÅëÇØ °¡Á®¿Â µ¥ÀÌÅÍ¸¦ ÀûÀçÇÒ
-        // µ¥ÀÌÅÍ ÀúÀå¼Ò¸¦ ¸ÕÀú Á¤ÀÇÇÑ´Ù.
+        // ë°ì´í„°ë² ì´ìŠ¤ í˜¹ì€ content resolverë¥¼ í†µí•´ ê°€ì ¸ì˜¨ ë°ì´í„°ë¥¼ ì ìž¬í• 
+        // ë°ì´í„° ì €ìž¥ì†Œë¥¼ ë¨¼ì € ì •ì˜í•œë‹¤.
 
-        List<Data> datas = new ArrayList<>();  // ArrayList -> List·Î ¾´´Ù´Â °ÍÀº ´ÙÇü¼ºÀ» ÀÌÇØÇÏ°í ÀÖ´Ù?
+        List<Data> datas = new ArrayList<>();  // ArrayList -> Listë¡œ ì“´ë‹¤ëŠ” ê²ƒì€ ë‹¤í˜•ì„±ì„ ì´í•´í•˜ê³  ìžˆë‹¤?
 
-        // ÀÏÁ¾ÀÇ Database °ü¸® Åø
-        // ÀüÈ­¹øÈ£ºÎ¿¡ ÀÌ¹Ì ¸¸µé¾îÁ® ÀÖ´Â Content Provider ¸¦ ÅëÇØ
-        // µ¥ÀÌÅÍ¸¦ °¡Á®¿Ã ¼ö ÀÖ´Ù.
+        // ì¼ì¢…ì˜ Database ê´€ë¦¬ íˆ´
+        // ì „í™”ë²ˆí˜¸ë¶€ì— ì´ë¯¸ ë§Œë“¤ì–´ì ¸ ìžˆëŠ” Content Provider ë¥¼ í†µí•´
+        // ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¬ ìˆ˜ ìžˆë‹¤.
 
-        ContentResolver resolver = getContentResolver();  // Ä«Åå¿¡¼­ ÁÖ¼Ò·Ï °¡Á®¿À´Â °Í Ã³·³.
+        ContentResolver resolver = getContentResolver();  // ì¹´í†¡ì—ì„œ ì£¼ì†Œë¡ ê°€ì ¸ì˜¤ëŠ” ê²ƒ ì²˜ëŸ¼.
 
-        // 1. µ¥ÀÌÅÍ ÄÁÅÙÃ÷ URI(ÀÚ¿øÀÇ ÁÖ¼Ò)¸¦ Á¤ÀÇ
-        //  phonUri -> Å×ÀÌºíÀÇ ÀÌ¸§ÀÌ¶ó°í »ý°¢.
+        // 1. ë°ì´í„° ì»¨í…ì¸  URI(ìžì›ì˜ ì£¼ì†Œ)ë¥¼ ì •ì˜
+        //  phonUri -> í…Œì´ë¸”ì˜ ì´ë¦„ì´ë¼ê³  ìƒê°.
         Uri phoneUri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
-                        // ¹Ì¸® Á¤ÀÇ µÈ Å¬·¡½º
+                        // ë¯¸ë¦¬ ì •ì˜ ëœ í´ëž˜ìŠ¤
 
-        // URI¿¡´Â ¿©·¯ µ¥ÀÌÅÍ°¡ µé¾î ÀÖ±â ¶§¹®¿¡
-        // 2. µ¥ÀÌÅÍ¿¡¼­ °¡Á®¿Ã ÄÃ·³¸íÀ» Á¤ÀÇ
+        // URIì—ëŠ” ì—¬ëŸ¬ ë°ì´í„°ê°€ ë“¤ì–´ ìžˆê¸° ë•Œë¬¸ì—
+        // 2. ë°ì´í„°ì—ì„œ ê°€ì ¸ì˜¬ ì»¬ëŸ¼ëª…ì„ ì •ì˜
         String projections[] = {ContactsContract.CommonDataKinds.Phone.CONTACT_ID,
                 ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
                 ContactsContract.CommonDataKinds.Phone.NUMBER};
 
-        // 3. Content Resolver·Î Äõ¸®¸¦ ³¯·Á¼­ µ¥ÀÌÅÍ¸¦ °¡Á®¿Â´Ù.
-        Cursor cursor = resolver.query(phoneUri, projections, null, null, null); // -> ¹è¿­Ã³·³ °ªÀÌ µé¾îÀÖ´Ù?
-        // 4. ¹Ýº¹¹®À» ÅëÇØ cursor¿¡ ´ã°ÜÀÖ´Â µ¥ÀÌÅÍ¸¦ ÇÏ³ª¾¿ ÃßÃâÇÑ´Ù.
+        // 3. Content Resolverë¡œ ì¿¼ë¦¬ë¥¼ ë‚ ë ¤ì„œ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¨ë‹¤.
+        Cursor cursor = resolver.query(phoneUri, projections, null, null, null); // -> ë°°ì—´ì²˜ëŸ¼ ê°’ì´ ë“¤ì–´ìžˆë‹¤?
+        // 4. ë°˜ë³µë¬¸ì„ í†µí•´ cursorì— ë‹´ê²¨ìžˆëŠ” ë°ì´í„°ë¥¼ í•˜ë‚˜ì”© ì¶”ì¶œí•œë‹¤.
         if(cursor != null){
             while(cursor.moveToNext()){
-                // 4.1 À§¿¡ Á¤ÀÇÇÑ ÇÁ·ÎÁ§¼ÇÀÇ ÄÃ·³¸íÀ¸·Î cursor ÀÖ´Â ÀÎµ¦½º °ªÀ» Á¶È¸ÇÏ°í
+                // 4.1 ìœ„ì— ì •ì˜í•œ í”„ë¡œì ì…˜ì˜ ì»¬ëŸ¼ëª…ìœ¼ë¡œ cursor ìžˆëŠ” ì¸ë±ìŠ¤ ê°’ì„ ì¡°íšŒí•˜ê³ 
                 int idIndex = cursor.getColumnIndex(projections[0]);
-                // 4.2 ÇØ´ç index¸¦ »ç¿ëÇØ¼­ ½ÇÁ¦°ªÀ» °¡Á®¿Â´Ù.
+                // 4.2 í•´ë‹¹ indexë¥¼ ì‚¬ìš©í•´ì„œ ì‹¤ì œê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
                 int id = cursor.getInt(idIndex);
 
                 int nameIndex = cursor.getColumnIndex(projections[1]);
@@ -175,13 +179,13 @@ public List<Data> getContacts(){
                 int telIndex = cursor.getColumnIndex(projections[2]);
                 String tel = cursor.getString(telIndex);
 
-                // 5. ³»°¡ ¼³°èÇÑ µ¥ÀÌÅÍ Å¬·¡½º¿¡ ´ã¾ÆÁØ´Ù.
+                // 5. ë‚´ê°€ ì„¤ê³„í•œ ë°ì´í„° í´ëž˜ìŠ¤ì— ë‹´ì•„ì¤€ë‹¤.
                 Data data = new Data();
                 data.setId(id);
                 data.setName(name);
                 data.setTel(tel);
 
-                // 6. ¿©·¯°³ÀÇ °´Ã¼¸¦ ´ãÀ» ¼ö ÀÖ´Â ÀúÀå¼Ò¿¡ ÀûÀçÇÑ´Ù.
+                // 6. ì—¬ëŸ¬ê°œì˜ ê°ì²´ë¥¼ ë‹´ì„ ìˆ˜ ìžˆëŠ” ì €ìž¥ì†Œì— ì ìž¬í•œë‹¤.
                 datas.add(data);
             }
         }
@@ -189,13 +193,13 @@ public List<Data> getContacts(){
     }
 }
 ```
-ÀüÈ­¹øÈ£ºÎ¿¡´Â ÀÌ¹Ì ContentProvider ¸¦ ÅëÇØ µ¥ÀÌÅÍ ¿­¾î ÁÙ ¼ö ÀÖ´Â È¯°æÀÌ ±¸¼ºµÇ ÀÖ´Â °Í.
-³ª´Â ContentResolver ¸¦ ÅëÇØ ±× µ¥ÀÌÅÍ¿¡ Á¢±ÙÇÏ¿© µ¥ÀÌÅÍ¸¦ °¡Á®¿À´Â °ÍÀÌ´Ù.
+ì „í™”ë²ˆí˜¸ë¶€ì—ëŠ” ì´ë¯¸ ContentProvider ë¥¼ í†µí•´ ë°ì´í„° ì—´ì–´ ì¤„ ìˆ˜ ìžˆëŠ” í™˜ê²½ì´ êµ¬ì„±ë˜ ìžˆëŠ” ê²ƒ.
+ë‚˜ëŠ” ContentResolver ë¥¼ í†µí•´ ê·¸ ë°ì´í„°ì— ì ‘ê·¼í•˜ì—¬ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¤ëŠ” ê²ƒì´ë‹¤.
 
-¾ÛÀ» °³¹ßÇÒ ¶§ ³»°¡ µ¥ÀÌÅÍ¸¦ Á¦°øÇÏ°íÀÚ ÇÑ´Ù¸é ÄÁÅÃÆ® ÇÁ·Î¹ÙÀÌ´õ¸¦ ¸¸µé¾î¾ßÇÔ.
+ì•±ì„ ê°œë°œí•  ë•Œ ë‚´ê°€ ë°ì´í„°ë¥¼ ì œê³µí•˜ê³ ìž í•œë‹¤ë©´ ì»¨íƒíŠ¸ í”„ë¡œë°”ì´ë”ë¥¼ ë§Œë“¤ì–´ì•¼í•¨.
 
-Q.1 ÇÚµåÆùÀÇ ±âº» ¾ÛµéÀº ¸ðµÎ ÇÁ·Î¹ÙÀÌ´õ¸¦ °¡Áö°íÀÖ³ª?
-A. ¾Æ´Ô. µ¥ÀÌÅÍ¸¦ Á¦°øÇÏÁö ¾Ê´Â °è»ê±â µîÀº ÇÊ¿ä ¾øÀ½.
+Q.1 í•¸ë“œí°ì˜ ê¸°ë³¸ ì•±ë“¤ì€ ëª¨ë‘ í”„ë¡œë°”ì´ë”ë¥¼ ê°€ì§€ê³ ìžˆë‚˜?
+A. ì•„ë‹˜. ë°ì´í„°ë¥¼ ì œê³µí•˜ì§€ ì•ŠëŠ” ê³„ì‚°ê¸° ë“±ì€ í•„ìš” ì—†ìŒ.
 
 ***
 
@@ -204,9 +208,9 @@ Cursor cursor = resolver.query(phoneUri, projections, null, null, null);
 ```
 ![](https://github.com/jjunji/Android/blob/master/Day18_0601/image/projec.PNG)
 
-1¹øÂ° ÀÎÀÚ : ÁÖ¼Ò·ÏÀÇ ÁÖ¼Ò °ª<br>
-2¹øÂ° ÀÎÀÚ : µ¥ÀÌÅÍ¸¦ °¡Á®¿Ã ÇüÅÂ<br>
-3,4,5 ¹øÂ° : Á¶°Ç½Ä ( Á¤·Ä µî)
+1ë²ˆì§¸ ì¸ìž : ì£¼ì†Œë¡ì˜ ì£¼ì†Œ ê°’<br>
+2ë²ˆì§¸ ì¸ìž : ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¬ í˜•íƒœ<br>
+3,4,5 ë²ˆì§¸ : ì¡°ê±´ì‹ ( ì •ë ¬ ë“±)
 
 ***
 
@@ -215,6 +219,6 @@ while(cursor.moveToNext()){
 ```
 ![](https://github.com/jjunji/Android/blob/master/Day18_0601/image/projec2.PNG)
 
-Ä¿¼­´Â ÇÑÁÙ¾¿ ÀÌµ¿
+ì»¤ì„œëŠ” í•œì¤„ì”© ì´ë™
 
-ÇÑÁÙÀ» ´Ù ÀÐÀ¸¸é data¿¡ ID Name Number°¡ µé¾î°¡´Â °ÍÀÌ°í ´Ù ÀÐÀº ÈÄ ¹Ø¿¡ ÁÙ ¹Ø¿¡ ÁÙ ¹Ø¿¡ ÁÙ ÂßÂß ÀÌµ¿.
+í•œì¤„ì„ ë‹¤ ì½ìœ¼ë©´ dataì— ID Name Numberê°€ ë“¤ì–´ê°€ëŠ” ê²ƒì´ê³  ë‹¤ ì½ì€ í›„ ë°‘ì— ì¤„ ë°‘ì— ì¤„ ë°‘ì— ì¤„ ì­‰ì­‰ ì´ë™.
