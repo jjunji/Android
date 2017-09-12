@@ -1,6 +1,6 @@
 # Runtime Permission
 
-![]()
+![](https://github.com/jjunji/Android/blob/master/Day18_0601/image/Permission.PNG)
 
 **1. Runtime Permission**
 
@@ -44,7 +44,7 @@ onRequestPermissionResult(int, String[], int[])
 
 #ContentProvider & ContentResolver 
 
-![]()
+![](https://github.com/jjunji/Android/blob/master/Day18_0601/image/ContentProvider_Resolver.PNG)
 
 안드로이드는 다른 어플리케이션에서 특정 어플리케이션의 데이터베이스에 직접 접근하는 것은 불가능.
 그래서 컨텐트 프로바이더(Content Provider)를 사용한다.
@@ -129,7 +129,7 @@ A. 아님. 데이터를 제공하지 않는 계산기 등은 필요 없음.
 ```java
 Cursor cursor = resolver.query(phoneUri, projections, null, null, null);
 ```
-![]()
+![](https://github.com/jjunji/Android/blob/master/Day18_0601/image/projec.PNG)
 
 1번째 인자 : 주소록의 주소 값
 2번째 인자 : 데이터를 가져올 형태
@@ -140,7 +140,7 @@ Cursor cursor = resolver.query(phoneUri, projections, null, null, null);
 ```java
 while(cursor.moveToNext()){
 ```
-![]()
+![](https://github.com/jjunji/Android/blob/master/Day18_0601/image/projec2.PNG)
 
 커서는 한줄씩 이동
 
