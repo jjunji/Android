@@ -94,6 +94,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult( Intent.createChooser(intent, "앱을 선택하세요") , 100);
                 break;
             case R.id.btnCamera:
+                intent = new Intent(this, CameraActivity.class);
+                startActivity(intent);
                 break;
         }
     }
