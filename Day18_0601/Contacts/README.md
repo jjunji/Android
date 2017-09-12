@@ -108,6 +108,11 @@ requestPermissions 호출 후에 호출되는 함수
         run();
     }
 ```
+**권한처리 순서**
+
+권한을 체크 하고,
+권한 체크 후에 권한에 대한 사용자 응답을 받은 후 특정 액티비티가 실행되면,
+그 액티비티에서 최종 결과처리를 해주는 형태.
 
 ***
 # ContentProvider & ContentResolver 
