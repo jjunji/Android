@@ -1,7 +1,6 @@
 # SharedPreferences
 
-
-**1. SharedPreferences란 **
+**1. SharedPreferences란**
 
 * 간단한 값 저장에 Local DB를 사용하기에는 복잡하기 때문에 SharedPreferences를 사용.
 * 자동 로그인을 위한 토큰, ID, PWD 저장 등 간단한 값을 저장하기 위해 사용한다.
@@ -9,7 +8,7 @@
 * 어플리케이션에 파일(xml) 형태로 데이터를 저장한다.
 *  => data/data/패키지명/shared_prefs/SharedPreference이름.xml 위치에 저장
 * 어플리케이션이 삭제되기 전까지 보존됨.
-
+	
 ***
  
 **2.SharedPreferences 객체**
@@ -20,8 +19,10 @@
 * getPreferences( ) : 액티비티에 하나의 공유 기본 설정 파일만 사용해야 하는 경우 Activity에서 이 메서드를 사용한다. 이 메서드는 액티비티에 속한 기본 공유 기본 설정 파일을 가져오기 때문에 이름을 제공할 필요없음.
 
 ***
- 
-**3.사용하기 **
+  
+  
+**3.사용하기**
+
 
 ```java
 	SharedPreferences setting;
@@ -43,6 +44,7 @@ SharedPreferences 객체를 참조할 변수를 선언.
 putBoolean( ) 및 putString( )과 같은 메서드를 사용하여 값을 추가한다.
 get하는 데이터형에 맞게 디폴트값을 설정.
 작업 완료는 commit( )을 해야 이루어짐. 
+
 ```java
 public void onClick(View v) {
         if(chk_auto.isChecked()){
@@ -64,11 +66,12 @@ SharedPreferences 인스턴스의 getInt( ), getString( ) 메소드를 사용하여 데이터를 
 데이터를 불러오는 메서드에는 총 두 개의 인자를 넘겨주며, 첫 번째에는 불러올 데이터의 키(Key) 값, 두 번째에는 해당 키에 해당하는 값이 없을 경우 반환할 값을 넣어준다.
 
 저장할 수 있는 데이터 타입
-[Boolean, Integer, Float, Long, String
+[Boolean, Integer, Float, Long, String]
 
 ***
 
-**4. 삭제 **
+
+**4. 삭제**
  
 ```java
 SharedPreferences.Editor editor = mPref.edit();
