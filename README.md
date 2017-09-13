@@ -121,3 +121,18 @@
 * Alpha
 * Property Animation
 <br>
+
+[SharedPreferences](https://github.com/jjunji/Android/blob/master/SharedPreferences/AutoLogin/README.md)
+
+* SharedPreferences 사용하기
+* AutoLogin
+<br>
+
+[주소록 가져오기](https://github.com/jjunji/Android/blob/master/Day18_0601/Contacts/README.md)
+
+* Runtime Permission
+*  권한 획득 처리
+* ContentProvider
+* ContentResolver
+* Cursor
+<br>
