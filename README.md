@@ -136,3 +136,11 @@
 * ContentResolver
 * Cursor
 <br>
+
+[갤러리 & 카메라 사용하기](https://github.com/jjunji/Android/blob/master/Day18_0601/camera/README.md)
+
+* 안드로이드 버전별 권한 획득 및 카메라 이용 분기 처리
+* File Provider 
+* 갤러리 이용
+* 카메라 이용
+<br>
