@@ -45,9 +45,6 @@ public class MainActivity extends AppCompatActivity{
     Uri uri;
     Intent CamIntent, GalIntent, CropIntent;
     final int RequestPermissonCode = 1;
-    DisplayMetrics displayMetrics;
-    int width, height;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +54,8 @@ public class MainActivity extends AppCompatActivity{
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         imageView = (ImageView) findViewById(R.id.imageView);
         toolbar.setTitle("Crop Image!!");
-        setSupportActionBar(toolbar);  //
+
+        setSupportActionBar(toolbar);
 
         int permissionCheck = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA);
         if(permissionCheck == PackageManager.PERMISSION_DENIED){
