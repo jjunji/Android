@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout android:layout_height="match_parent" android:layout_width="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:background="#aaffffff" android:layout_centerInParent="true" android:padding="20dp">
+
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_margin="4dp" android:layout_alignParentTop="true" android:orientation="vertical" android:id="@+id/contentsLayout">
+
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_margin="4dp" android:orientation="horizontal">
+
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/nameLabel" android:textSize="16dp" android:textColor="#ff222222" android:text=" 이 름 "/>
+
+    <EditText android:layout_height="wrap_content" android:layout_width="120dp" android:id="@+id/nameInput" android:inputType="textPersonName" android:layout_alignBaseline="@id/nameLabel"/>
+
+</LinearLayout>
+
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_margin="4dp" android:orientation="horizontal">
+
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/ageLabel" android:textSize="16dp" android:textColor="#ff222222" android:text=" 나 이 "/>
+
+    <EditText android:layout_height="wrap_content" android:layout_width="120dp" android:id="@+id/ageInput" android:inputType="numberDecimal" android:layout_alignBaseline="@id/ageLabel" android:maxLength="3"/>
+
+</LinearLayout>
+
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_margin="4dp" android:orientation="horizontal">
+
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/birthLabel" android:textSize="16dp" android:textColor="#ff222222" android:text=" 생 년 월 일 "/>
+
+</LinearLayout>
+
+
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:layout_margin="4dp" android:orientation="vertical">
+
+    <Button android:layout_height="wrap_content" android:layout_width="180dp" android:id="@+id/birthButton" android:text="" android:layout_gravity="right"/>
+
+</LinearLayout>
+
+</LinearLayout>
+
+    <Button android:layout_height="wrap_content" android:layout_width="120dp" android:id="@+id/saveButton" android:text="저 장" android:layout_marginTop="30dp" android:layout_centerHorizontal="true" android:layout_below="@+id/contentsLayout"/>
+
+</RelativeLayout>
+
+</RelativeLayout>
