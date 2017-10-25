@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout android:layout_height="match_parent" android:layout_width="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <FrameLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:background="#ffffffff" android:layout_alignParentTop="true" android:id="@+id/searchLayout">
+
+    <ImageView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/handleButton" android:visibility="gone" android:src="@drawable/handle" android:layout_gravity="center_horizontal"/>
+
+
+    <RelativeLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:background="#aaaaaaaa" android:id="@+id/urlLayout" android:padding="4dp">
+
+    <EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/urlInput" android:inputType="textUri" android:layout_toLeftOf="@+id/searchButton"/>
+
+    <Button android:layout_height="wrap_content" android:layout_width="100dp" android:id="@+id/searchButton" android:text="이동" android:layout_alignBaseline="@+id/urlInput" android:layout_alignParentRight="true"/>
+
+</RelativeLayout>
+
+</FrameLayout>
+
+    <WebView android:layout_height="match_parent" android:layout_width="match_parent" android:id="@+id/webview" android:layout_below="@+id/searchLayout"/>
+
+</RelativeLayout>
